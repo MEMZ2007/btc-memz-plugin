@@ -4,5 +4,5 @@
 安装
 
 ```
-git clone --depth=1 https://gitee.com/Alitax_admin/btc-memz-plugins  ./plugins/btc-memz-plugins
+git clone --depth=1 https://gitee.com/Alitax_admin/btc-memz-plugins ./plugins/btc-memz-plugins
 ```
