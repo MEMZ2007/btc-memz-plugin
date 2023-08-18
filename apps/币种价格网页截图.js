@@ -40,6 +40,10 @@ export class WebPreview extends plugin {
         {
           reg: '^#?doge$',
           fnc: 'previewdoge'
+        },
+        {
+          reg: '^#?ergo$',
+          fnc: 'previewergo'
         }
       ]
     });
@@ -137,6 +141,21 @@ export class WebPreview extends plugin {
 
   async previewdoge() {
     const url = 'https://www.coincarp.com/zh/currencies/dogecoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewergo() {
+    const url = 'https://www.bibiqing.com/coin/ergoplatform';
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
