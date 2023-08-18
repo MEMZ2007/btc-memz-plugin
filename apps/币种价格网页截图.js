@@ -32,7 +32,7 @@ export class WebPreview extends plugin {
         {
           reg: '^#?chia$',
           fnc: 'previewChia'
-        }
+        },
         {
           reg: '^#?clore$',
           fnc: 'previewclore'
