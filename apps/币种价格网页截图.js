@@ -3,15 +3,14 @@ import { segment } from 'oicq';
 import puppeteer from 'puppeteer';
 
 export class WebPreview extends plugin {
+  browser = null;
 
   constructor() {
     super({
       name: '网页预览',
       dsc: '发送#币种,返回此币种价格网页截图',
-
       event: 'message',
       priority: 100,
-
       rule: [
         {
           reg: '^#?dnx$',
@@ -35,99 +34,66 @@ export class WebPreview extends plugin {
         },
         {
           reg: '^#?clore$',
-          fnc: 'previewclore'
+          fnc: 'previewClore'
         }
       ]
     });
   }
 
-  async preview() {
-    const url = 'https://www.coincarp.com/zh/currencies/dynex/';
-
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
-    await page.setViewport({ width: 1000, height: 800 });
-
-    const imgBuffer = await page.screenshot();
-
-    await browser.close();
-
-    await this.reply(segment.image(imgBuffer));
+  async initBrowser() {
+    if (!this.browser) {
+      this.browser = await puppeteer.launch();
+    }
   }
 
-  async previewKaspa() {
-    const url = 'https://www.coincarp.com/zh/currencies/kaspa/';
-
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
-    await page.setViewport({ width: 1000, height: 800 });
-
-    const imgBuffer = await page.screenshot();
-
-    await browser.close();
-
-    await this.reply(segment.image(imgBuffer));
+  async closeBrowser() {
+    if (this.browser) {
+      await this.browser.close();
+      this.browser = null;
+    }
   }
 
-  async previewRavencoin() {
-    const url = 'https://www.coincarp.com/zh/currencies/ravencoin/';
-
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+  async preview(url) {
+    await this.initBrowser();
+    const page = await this.browser.newPage();
     await page.goto(url);
-    await page.setViewport({ width: 1000, height: 800 });
-
+    await page.setViewport({ width: 1000, height: 600 });
     const imgBuffer = await page.screenshot();
-
-    await browser.close();
-
+    await page.close();
     await this.reply(segment.image(imgBuffer));
   }
 
   async previewBitcoin() {
     const url = 'https://www.coincarp.com/zh/currencies/bitcoin/';
-
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
-    await page.setViewport({ width: 1000, height: 800 });
-
-    const imgBuffer = await page.screenshot();
-
-    await browser.close();
-
-    await this.reply(segment.image(imgBuffer));
+    await this.preview(url);
   }
 
   async previewChia() {
     const url = 'https://www.coincarp.com/zh/currencies/chianetwork/';
-
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
-    await page.setViewport({ width: 1000, height: 800 });
-
-    const imgBuffer = await page.screenshot();
-
-    await browser.close();
-
-    await this.reply(segment.image(imgBuffer));
+    await this.preview(url);
   }
-  async previewclore() {
+
+  async previewClore() {
     const url = 'https://www.coincarp.com/zh/currencies/clore-ai/price/';
-
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
-    await page.setViewport({ width: 1000, height: 800 });
-
-    const imgBuffer = await page.screenshot();
-
-    await browser.close();
-
-    await this.reply(segment.image(imgBuffer));
+    await this.preview(url);
   }
 
+  async previewKaspa() {
+    const url = 'https://www.coincarp.com/zh/currencies/kaspa/';
+    await this.preview(url);
+  }
+
+  async previewRavencoin() {
+    const url = 'https://www.coincarp.com/zh/currencies/ravencoin/';
+    await this.preview(url);
+  }
+
+  async preview() {
+    const url = 'https://www.coincarp.com/zh/currencies/dynex/';
+    await this.preview(url);
+  }
+
+  async onDisable() {
+    await this.closeBrowser();
+  }
 }
