@@ -6,3 +6,7 @@
 ```
 git clone --depth=1 https://gitee.com/memz2007/btc-memz-plugin ./plugins/btc-memz-plugin
 ```
+
+### 指令
+ #btc/eth/dnx/rvn/chia/kas/clore.....等币种
+ 目前还在继续更新添加各种币种包括优化。
