@@ -36,6 +36,10 @@ export class WebPreview extends plugin {
         {
           reg: '^#?clore$',
           fnc: 'previewclore'
+        },
+        {
+          reg: '^#?doge$',
+          fnc: 'previewdoge'
         }
       ]
     });
@@ -115,6 +119,7 @@ export class WebPreview extends plugin {
 
     await this.reply(segment.image(imgBuffer));
   }
+
   async previewclore() {
     const url = 'https://www.coincarp.com/zh/currencies/clore-ai/price/';
 
@@ -130,4 +135,18 @@ export class WebPreview extends plugin {
     await this.reply(segment.image(imgBuffer));
   }
 
+  async previewdoge() {
+    const url = 'https://www.coincarp.com/zh/currencies/dogecoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
 }
