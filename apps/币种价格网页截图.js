@@ -44,6 +44,22 @@ export class WebPreview extends plugin {
         {
           reg: '^#?ergo$',
           fnc: 'previewergo'
+        },
+        {
+          reg: '^#?eth$',
+          fnc: 'previeweth'
+        },
+        {
+          reg: '^#?nexa$',
+          fnc: 'previewnexa'
+        },
+        {
+          reg: '^#?rvn$',
+          fnc: 'previewrvn'
+        },
+        {
+          reg: '^#?neoxa$',
+          fnc: 'neoxa'
         }
       ]
     });
@@ -156,6 +172,66 @@ export class WebPreview extends plugin {
 
   async previewergo() {
     const url = 'https://www.bibiqing.com/coin/ergoplatform';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previeweth() {
+    const url = 'https://www.coincarp.com/zh/currencies/ethereum/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewnexa() {
+    const url = 'https://www.coincarp.com/zh/currencies/nexa-org/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewrvn() {
+    const url = 'https://www.coincarp.com/zh/currencies/ravencoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async neoxa() {
+    const url = 'https://www.mytokencap.com/zh/currencies/neox/821838646/';
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
