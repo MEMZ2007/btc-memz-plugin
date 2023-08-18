@@ -60,6 +60,14 @@ export class WebPreview extends plugin {
         {
           reg: '^#?neoxa$',
           fnc: 'neoxa'
+        },
+        {
+          reg: '^#?rxd$',
+          fnc: 'rxd'
+        },
+        {
+          reg: '^#?xch$',
+          fnc: 'xch'
         }
       ]
     });
@@ -232,6 +240,36 @@ export class WebPreview extends plugin {
 
   async neoxa() {
     const url = 'https://www.mytokencap.com/zh/currencies/neox/821838646/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async rxd() {
+    const url = 'https://www.coincarp.com/zh/currencies/radiant/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async xch() {
+    const url = 'https://www.coincarp.com/zh/currencies/chianetwork/';
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
