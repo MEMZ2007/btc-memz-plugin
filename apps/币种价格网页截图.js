@@ -24,6 +24,10 @@ export class WebPreview extends plugin {
         {
           reg: '^#?rvn$',
           fnc: 'previewRavencoin'
+        },
+        {
+          reg: '^#?btc$',
+          fnc: 'previewBitcoin'
         }
       ]
     });
@@ -61,6 +65,21 @@ export class WebPreview extends plugin {
 
   async previewRavencoin() {
     const url = 'https://www.coincarp.com/zh/currencies/ravencoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewBitcoin() {
+    const url = 'https://www.coincarp.com/zh/currencies/bitcoin/';
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
