@@ -4,5 +4,5 @@
 ### 安装
 
 ```
-git clone --depth=1 https://gitee.com/memz2007/btc-memz-plugin ./plugin/btc-memz-plugin
+git clone --depth=1 https://gitee.com/memz2007/btc-memz-plugin ./plugins/btc-memz-plugin
 ```
