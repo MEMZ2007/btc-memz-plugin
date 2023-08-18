@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import chalk from 'chalk'
 
-const files = fs.readdirSync('./plugin/btc-memz-plugin/apps').filter(file => file.endsWith('.js'))
+const files = fs.readdirSync('./plugins/btc-memz-plugin/apps').filter(file => file.endsWith('.js'))
 
 let ret = []
 
