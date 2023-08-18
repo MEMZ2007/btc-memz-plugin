@@ -28,6 +28,14 @@ export class WebPreview extends plugin {
         {
           reg: '^#?btc$',
           fnc: 'previewBitcoin'
+        },
+        {
+          reg: '^#?chia$',
+          fnc: 'previewChia'
+        }
+        {
+          reg: '^#?clore$',
+          fnc: 'previewclore'
         }
       ]
     });
@@ -80,6 +88,35 @@ export class WebPreview extends plugin {
 
   async previewBitcoin() {
     const url = 'https://www.coincarp.com/zh/currencies/bitcoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewChia() {
+    const url = 'https://www.coincarp.com/zh/currencies/chianetwork/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+  async previewclore() {
+    const url = 'https://www.coincarp.com/zh/currencies/clore-ai/price/';
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
