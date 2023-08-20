@@ -22,7 +22,7 @@ export class BtcUpdate extends plugin {
             priority: 10,
             rule: [
                 {
-                    reg: '^#btc更新$',
+                    reg: '^#btc(插件)?(强制)?更新$',
                     fnc: 'update'
                 }
             ]
