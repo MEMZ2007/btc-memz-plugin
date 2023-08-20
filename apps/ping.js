@@ -11,7 +11,7 @@ export class Ping extends plugin {
       name: 'Ping',
       dsc: 'Ping',
       event: 'message',
-      priority: 6,
+      priority: -1,
       rule: [
         {
           reg: '^#?[pP]ing ',
