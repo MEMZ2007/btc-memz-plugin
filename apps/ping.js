@@ -1,17 +1,15 @@
-//cv的憨憨插件
 import plugin from '../../../lib/plugins/plugin.js'
 import dns from 'dns'
 import { exec } from 'child_process'
-import pingMan from 'pingman'
 import net from 'net'
 
 export class Ping extends plugin {
   constructor () {
     super({
-      name: 'Ping',
-      dsc: 'Ping',
+      name: '憨憨Ping',
+      dsc: '憨憨Ping',
       event: 'message',
-      priority: -1,
+      priority: 6,
       rule: [
         {
           reg: '^#?[pP]ing ',
@@ -21,98 +19,46 @@ export class Ping extends plugin {
     })
   }
 
-  // ping网站或ip
   async ping (e) {
-    if (!Config.pingToken) {
-      e.reply('token无效，请前往 https://ipinfo.io 注册账号')
-      return false
-    }
+    let msg = e.msg.trim().replace(/^#?[pP]ing\s/, '').replace(/https?:\/\//, '');
+    await this.reply('在ping了、在ping了。。。', true, { recallMsg: 3 });
 
-    let msg = e.msg.trim().replace(/^#?[pP]ing\s/, '').replace(/https?:\/\//, '')
-    await this.reply('在ping了、在ping了。。。', true, { recallMsg: 3 })
-    let ipInfo; let pingRes; let domain; let ipAddress = msg; let isShowIP = false; const numberOfEchos = 6
-    if (e.msg.trim().includes('#Ping')) isShowIP = true
-    if (msg !== 'me') {
-      const options = {
-        logToFile: false,
-        numberOfEchos,
-        timeout: 2
-      }
-      if (net.isIPv4(msg)) {
-        options.IPV4 = true
-      } else if (net.isIPv6(msg)) {
-        options.IPV6 = true
-      } else {
-        domain = getDomain(msg)
-        ipAddress = domain ? await getIPAddress(domain) : ''
-        if (!ipAddress) {
-          await this.reply('解析域名ip出错！')
-          return false
-        }
-      }
-      try {
-        let response = await pingMan(ipAddress, options)
-        if (response.alive) {
-          pingRes = '最小延迟：' + Math.floor(response.min) + 'ms\n' +
-              '最大延迟：' + Math.floor(response.max) + 'ms\n' +
-              '平均延迟：' + Math.floor(response.avg) + 'ms\n' +
-              '发送数据包: ' + numberOfEchos + '\n' +
-              '丢失数据包: ' + (numberOfEchos - response.times.length) + '\n' +
-              '丢包率：' + response.packetLoss + '%'
-        } else {
-          pingRes = `目标地址${!e.isGroup ? '(' + ipAddress + ')' : domain || ''}无法响应，请检查网络连接是否正常(是否需要代理访问？)，或该站点是否已关闭。`
-        }
-      } catch (error) {
-        logger.error(`ping 执行出错: ${error}`)
-        await this.reply('ping 执行出错: ', error)
-      }
-    }
+    // 根据您的需求，进行Ping操作，这里使用 exec 执行系统的 ping 命令
     try {
-      // 通过ipinfo.io获取ip地址相关信息
-      ipInfo = await new Promise((resolve, reject) => {
-        exec(`curl https://ipinfo.io/${msg === 'me' ? '' : ipAddress}?token=83521c952119ea`, async (error, stdout, stderr) => {
-          if (error) {
-            reject(error)
-          } else {
-            resolve(stdout)
-          }
-        })
-      })
-    } catch (error) {
-      logger.error(`exec curl执行出错: ${error}`)
-      await this.reply(`exec curl执行出错: ${error}`, e.isGroup)
-      return false
-    }
-    ipInfo = JSON.parse(ipInfo.trim())
-
-    logger.warn(ipInfo)
-    if (ipInfo.bogon) {
-      await this.reply(pingRes, e.isGroup)
-      return false
-    }
-    let res = `${isShowIP ? 'IP: ' + ipInfo.ip + '\n' : ''}${domain ? 'Domain: ' + domain + '\n' : ''}国家：${ipInfo.country}\n地区：${ipInfo.region}\n城市：${ipInfo.city}\n时区：${ipInfo.timezone}\n经纬度：${ipInfo.loc}\n运营商：${ipInfo.org}\n${pingRes || ''}`
-    await this.reply(res, e.isGroup)
-    return true
-  }
-}
-function getDomain (url) {
-  const domainRegex = /((?:[\u4e00-\u9fa5a-zA-Z0-9-]+\.)+[\u4e00-\u9fa5a-zA-Z]{2,})/
-  const match = url.match(domainRegex)
-  return match ? match[1] : false
-}
-async function getIPAddress (host) {
-  try {
-    return await new Promise((resolve, reject) => {
-      dns.lookup(host, (err, address) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(address)
+      exec(`ping -c 4 ${msg}`, (error, stdout, stderr) => {
+        if (error) {
+          this.reply(`Ping执行出错: ${error}`);
+          return;
         }
-      })
-    })
-  } catch (error) {
-    logger.error(error)
-    return false
+
+        // 处理 stdout 中的Ping结果
+        const pingRes = stdout; // 这里需要根据Ping命令的输出格式进行处理
+
+        // 获取IP地址相关信息（您可能需要使用其他API来替代ipinfo.io）
+        const ipAddress = ''; // 根据Ping结果提取IP地址
+        const ipInfo = await this.getIPInfo(ipAddress);
+
+        // 构造回复消息
+        let res = `${ipInfo ? 'IP: ' + ipAddress + '\n' : ''}国家：${ipInfo.country}\n地区：${ipInfo.region}\n城市：${ipInfo.city}\n时区：${ipInfo.timezone}\n经纬度：${ipInfo.loc}\n运营商：${ipInfo.org}\n${pingRes || ''}`;
+        
+        this.reply(res, e.isGroup);
+      });
+    } catch (error) {
+      this.reply(`Ping执行出错: ${error}`);
+    }
+  }
+
+  // 获取IP地址相关信息（根据您的需求，可能需要替代ipinfo.io）
+  async getIPInfo (ipAddress) {
+    // 根据IP地址获取相关信息的逻辑，您可能需要使用其他API或服务来实现
+    // 这里的示例代码需要根据实际情况替代
+    return {
+      country: '国家信息',
+      region: '地区信息',
+      city: '城市信息',
+      timezone: '时区信息',
+      loc: '经纬度信息',
+      org: '运营商信息'
+    };
   }
 }
