@@ -7,7 +7,7 @@ export class PingPlugin extends plugin {
       name: 'Ping插件',
       dsc: 'Ping指定IP/域名并返回结果',
       event: 'message',
-      priority: 5000,
+      priority: -1,
       rule: [
         {
           reg: /^#ping\s+(.+)/i, // 匹配以"#ping "开头的消息
