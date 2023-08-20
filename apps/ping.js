@@ -6,10 +6,10 @@ import net from 'net'
 export class Ping extends plugin {
   constructor () {
     super({
-      name: '憨憨Ping',
-      dsc: '憨憨Ping',
+      name: 'Ping',
+      dsc: 'Ping',
       event: 'message',
-      priority: 6,
+      priority: -1,
       rule: [
         {
           reg: '^#?[pP]ing ',
