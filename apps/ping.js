@@ -1,3 +1,4 @@
+//cv的憨憨插件
 import plugin from '../../../lib/plugins/plugin.js'
 import dns from 'dns'
 import { exec } from 'child_process'
@@ -7,8 +8,8 @@ import net from 'net'
 export class Ping extends plugin {
   constructor () {
     super({
-      name: '憨憨Ping',
-      dsc: '憨憨Ping',
+      name: 'Ping',
+      dsc: 'Ping',
       event: 'message',
       priority: 6,
       rule: [
