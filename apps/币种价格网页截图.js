@@ -72,6 +72,10 @@ export class WebPreview extends plugin {
         {
           reg: '^#?meme$',
           fnc: 'meme'
+        },
+        {
+          reg: '^#?pepe$',
+          fnc: 'pepe'
         }
       ]
     });
@@ -289,6 +293,21 @@ export class WebPreview extends plugin {
 
   async meme() {
     const url = 'https://www.coincarp.com/zh/currencies/meme-bsc/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async pepe() {
+    const url = 'https://www.coincarp.com/zh/currencies/pepe/';
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
