@@ -55,7 +55,7 @@ export class WebPreview extends plugin {
   }
 
   async preview(e) {
-    const url = url_list[name];
+    const url = url_list[e.msg];
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
