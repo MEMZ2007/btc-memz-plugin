@@ -29,7 +29,7 @@ export class WebPreview extends plugin {
       priority: 100,
       rule: [
         {
-          reg: `^#?查询币种(.*)`,
+          reg: `^#?(.*)`,
           fnc: 'preview'
         },
       ]
