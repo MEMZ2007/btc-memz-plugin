@@ -2,6 +2,24 @@ import plugin from '../../../lib/plugins/plugin.js';
 import { segment } from 'oicq';
 import puppeteer from 'puppeteer';
 
+const list = [
+  'dnx',
+  'kas',
+  'rvn',
+  'btc',
+  'chia',
+  'clore',
+  'doge',
+  'ergo',
+  'eth',
+  'nexa',
+  'neoxa',
+  'rxd',
+  'xch',
+  'meme',
+  'pepe',
+]
+
 const url_list = {
   'dnx': "https://www.coincarp.com/zh/currencies/dynex/",
   'kas': "https://www.coincarp.com/zh/currencies/kaspa/",
@@ -29,7 +47,7 @@ export class WebPreview extends plugin {
       priority: 100,
       rule: [
         {
-          reg: `^#查询币种(.*)`,
+          reg: `^#?${list}(.*)`,
           fnc: 'preview'
         },
       ]
@@ -37,8 +55,12 @@ export class WebPreview extends plugin {
   }
 
   async preview(e) {
-    let name = e.msg.replace(/#查询币种/g,'').trim();
+    // let name = e.msg.replace(/#/g,'').trim();
     const url = url_list[name];
+    if (url == null) {
+      e.reply("没有此币种哦")
+      return true
+    }
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
