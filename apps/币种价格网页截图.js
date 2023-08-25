@@ -18,7 +18,7 @@ const list = [
   'xch',
   'meme',
   'pepe',
-]
+];
 
 const url_list = {
   'dnx': "https://www.coincarp.com/zh/currencies/dynex/",
@@ -36,7 +36,7 @@ const url_list = {
   'xch': "https://www.coincarp.com/zh/currencies/chianetwork/",
   'meme': "https://www.coincarp.com/zh/currencies/meme-bsc/",
   'pepe': "https://www.coincarp.com/zh/currencies/pepe/",
-}
+};
 
 export class WebPreview extends plugin {
   constructor() {
@@ -55,11 +55,10 @@ export class WebPreview extends plugin {
   }
 
   async preview(e) {
-    // let name = e.msg.replace(/#/g,'').trim();
     const url = url_list[name];
     if (url == null) {
-      e.reply("没有此币种哦")
-      return true
+      e.reply("没有此币种哦");
+      return true;
     }
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
