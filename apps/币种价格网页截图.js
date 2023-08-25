@@ -56,10 +56,6 @@ export class WebPreview extends plugin {
 
   async preview(e) {
     const url = url_list[name];
-    if (url == null) {
-      e.reply("没有此币种哦");
-      return true;
-    }
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
