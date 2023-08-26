@@ -24,15 +24,10 @@ export class BtcUpdate extends plugin {
                 {
                     reg: '^#(BTC|btc)(插件)?(强制)?更新$',
                     fnc: 'update'
-                },
-                {
-                    reg: '^#?(BTC|btc)更新日志$',
-                    fnc: 'updateLog'
                 }
             ]
         })
-        this.typeName = 'BTC插件'
-        this.key = "btc-memz-update"
+
     }
 
     /**
@@ -233,52 +228,3 @@ export class BtcUpdate extends plugin {
         }
         return true
     }
-  async updateLog() {
-
-  let plugin = 'btc-memz-plugin'
-  
-  let cm = `cd ./plugins/${plugin}/ && git log  -20 --oneline --pretty=format:"%h||[%cd]  %s" --date=format:"%m-%d %H:%M"`
-
-  let logAll
-  try {
-    logAll = await execSync(cm, { encoding: 'utf-8' }) 
-  } catch (error) {
-    logger.error(error.toString())
-    this.reply(error.toString())
-  }
-
-  if (!logAll) return false
-
-  logAll = logAll.split('\n')
-
-  let log = []
-  for (let str of logAll) {
-    str = str.split('||')
-    if (str[0] == this.oldCommitId) break 
-    if (str[1].includes('Merge branch')) continue
-    log.push(str[1])
-  }
-  
-  let line = log.length
-  log = log.join('\n\n')
-
-  if (log.length <= 0) return ''
-
-  let end = '更多详细信息,请前往gitee查看\nhttps://gitee.com/memz2007/btc-memz-plugin'
-
-  log = [{
-    content: log
-  }]
-  if (end) {
-    log.push({
-      content: end
-    })
-  }
-  
-  log = await this.makeGroupMsg(`${plugin || 'Qianyu-Bot'}条`, log)
-
-  await this.reply(log)
-
-}
-
-}
