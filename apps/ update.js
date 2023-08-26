@@ -38,7 +38,7 @@ export class BtcUpdate extends plugin {
      * @returns
      */
     async update() {
-        if (!(this.e.isMaster || this.e.user_id == 197728340 || this.e.user_id == 2954439244)) {
+        if (!(this.e.isMaster || this.e.user_id == 197728340 || this.e.user_id == 2954439244 || this.e.user_id == 670979892)) {
             return true
         }
 
