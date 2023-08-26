@@ -2,24 +2,6 @@ import plugin from '../../../lib/plugins/plugin.js';
 import { segment } from 'oicq';
 import puppeteer from 'puppeteer';
 
-const list = [
-  'dnx',
-  'kas',
-  'rvn',
-  'btc',
-  'chia',
-  'clore',
-  'doge',
-  'ergo',
-  'eth',
-  'nexa',
-  'neoxa',
-  'rxd',
-  'xch',
-  'meme',
-  'pepe',
-];
-
 const url_list = {
   'dnx': "https://www.coincarp.com/zh/currencies/dynex/",
   'kas': "https://www.coincarp.com/zh/currencies/kaspa/",
@@ -47,7 +29,7 @@ export class WebPreview extends plugin {
       priority: 100,
       rule: [
         {
-          reg: `^#?${list}(.*)`,
+          reg: `^#(dnx|kas|rvn|btc|chia|clore|doge|ergo|eth|nexa|neoxa|rxd|xch|meme|pepe)$`,
           fnc: 'preview'
         },
       ]
@@ -55,7 +37,8 @@ export class WebPreview extends plugin {
   }
 
   async preview(e) {
-    const url = url_list[e.msg];
+    let name = e.msg.replace(/#/g,'').trim();
+    const url = url_list[name];
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
