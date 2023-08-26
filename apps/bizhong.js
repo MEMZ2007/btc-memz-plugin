@@ -136,7 +136,7 @@ export class WebPreview extends plugin {
   async pepe() {
     await this.takeScreenshot('https://www.coincarp.com/zh/currencies/pepe/');
   }
-  // 为其他加密货币定义类似的方法
+  //QAQ，好累啊
   //MD，累死我了
   //AWA
   //这优化
