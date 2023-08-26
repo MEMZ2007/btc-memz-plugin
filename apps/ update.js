@@ -31,6 +31,8 @@ export class BtcUpdate extends plugin {
                 }
             ]
         })
+        this.typeName = 'BTC插件'
+        this.key = "btc-memz-update"
     }
 
     /**
@@ -229,7 +231,7 @@ export class BtcUpdate extends plugin {
             await this.reply('请先安装git')
             return false
         }
-        
+        return true
     }
   async updateLog() {
 
@@ -273,7 +275,7 @@ export class BtcUpdate extends plugin {
     })
   }
   
-  log = await this.makeGroupMsg(`${plugin}更新日志,共${line}条`, log)
+  log = await this.makeGroupMsg(`${plugin || 'Qianyu-Bot'}条`, log)
 
   await this.reply(log)
 
