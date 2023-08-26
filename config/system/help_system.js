@@ -101,6 +101,10 @@ export const helpList = [
     icon: 35, 
     title: '#btc(强制)更新', 
     desc: '(强制)更新BTC插件' 
+},{ 
+    icon: 25, 
+    title: '#cmd', 
+    desc: '执行一些简单的命令' 
 }]
 }]
 export const isSys = true
