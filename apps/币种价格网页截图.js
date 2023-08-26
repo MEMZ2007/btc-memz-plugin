@@ -2,66 +2,322 @@ import plugin from '../../../lib/plugins/plugin.js';
 import { segment } from 'oicq';
 import puppeteer from 'puppeteer';
 
-const list = [
-  'dnx',
-  'kas',
-  'rvn',
-  'btc',
-  'chia',
-  'clore',
-  'doge',
-  'ergo',
-  'eth',
-  'nexa',
-  'neoxa',
-  'rxd',
-  'xch',
-  'meme',
-  'pepe',
-];
-
-const url_list = {
-  'dnx': "https://www.coincarp.com/zh/currencies/dynex/",
-  'kas': "https://www.coincarp.com/zh/currencies/kaspa/",
-  'rvn': "https://www.coincarp.com/zh/currencies/ravencoin/",
-  'btc': "https://www.coincarp.com/zh/currencies/bitcoin/",
-  'chia': "https://www.coincarp.com/zh/currencies/chianetwork/",
-  'clore': "https://www.coincarp.com/zh/currencies/clore-ai/price/",
-  'doge': "https://www.coincarp.com/zh/currencies/dogecoin/",
-  'ergo': "https://www.bibiqing.com/coin/ergoplatform",
-  'eth': "https://www.coincarp.com/zh/currencies/ethereum/",
-  'nexa': "https://www.coincarp.com/zh/currencies/nexa-org/",
-  'neoxa': "https://www.mytokencap.com/zh/currencies/neox/821838646/",
-  'rxd': "https://www.coincarp.com/zh/currencies/radiant/",
-  'xch': "https://www.coincarp.com/zh/currencies/chianetwork/",
-  'meme': "https://www.coincarp.com/zh/currencies/meme-bsc/",
-  'pepe': "https://www.coincarp.com/zh/currencies/pepe/",
-};
-
 export class WebPreview extends plugin {
+
   constructor() {
     super({
       name: '网页预览',
-      dsc: '发送#查询币种,返回此币种价格网页截图',
+      dsc: '发送#币种,返回此币种价格网页截图',
+
       event: 'message',
       priority: 100,
+
       rule: [
         {
-          reg: `^#?${list}(.*)`,
+          reg: '^#?dnx$',
           fnc: 'preview'
         },
+        {
+          reg: '^#?kas$',
+          fnc: 'previewKaspa'
+        },
+        {
+          reg: '^#?rvn$',
+          fnc: 'previewRavencoin'
+        },
+        {
+          reg: '^#?btc$',
+          fnc: 'previewBitcoin'
+        },
+        {
+          reg: '^#?chia$',
+          fnc: 'previewChia'
+        },
+        {
+          reg: '^#?clore$',
+          fnc: 'previewclore'
+        },
+        {
+          reg: '^#?doge$',
+          fnc: 'previewdoge'
+        },
+        {
+          reg: '^#?ergo$',
+          fnc: 'previewergo'
+        },
+        {
+          reg: '^#?eth$',
+          fnc: 'previeweth'
+        },
+        {
+          reg: '^#?nexa$',
+          fnc: 'previewnexa'
+        },
+        {
+          reg: '^#?rvn$',
+          fnc: 'previewrvn'
+        },
+        {
+          reg: '^#?neoxa$',
+          fnc: 'neoxa'
+        },
+        {
+          reg: '^#?rxd$',
+          fnc: 'rxd'
+        },
+        {
+          reg: '^#?xch$',
+          fnc: 'xch'
+        },
+        {
+          reg: '^#?meme$',
+          fnc: 'meme'
+        },
+        {
+          reg: '^#?pepe$',
+          fnc: 'pepe'
+        }
       ]
     });
   }
 
-  async preview(e) {
-    const url = url_list[e.msg];
+  async preview() {
+    const url = 'https://www.coincarp.com/zh/currencies/dynex/';
+
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
     await page.setViewport({ width: 1000, height: 800 });
+
     const imgBuffer = await page.screenshot();
+
     await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewKaspa() {
+    const url = 'https://www.coincarp.com/zh/currencies/kaspa/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewRavencoin() {
+    const url = 'https://www.coincarp.com/zh/currencies/ravencoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewBitcoin() {
+    const url = 'https://www.coincarp.com/zh/currencies/bitcoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewChia() {
+    const url = 'https://www.coincarp.com/zh/currencies/chianetwork/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewclore() {
+    const url = 'https://www.coincarp.com/zh/currencies/clore-ai/price/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewdoge() {
+    const url = 'https://www.coincarp.com/zh/currencies/dogecoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewergo() {
+    const url = 'https://www.bibiqing.com/coin/ergoplatform';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previeweth() {
+    const url = 'https://www.coincarp.com/zh/currencies/ethereum/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewnexa() {
+    const url = 'https://www.coincarp.com/zh/currencies/nexa-org/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async previewrvn() {
+    const url = 'https://www.coincarp.com/zh/currencies/ravencoin/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async neoxa() {
+    const url = 'https://www.mytokencap.com/zh/currencies/neox/821838646/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async rxd() {
+    const url = 'https://www.coincarp.com/zh/currencies/radiant/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async xch() {
+    const url = 'https://www.coincarp.com/zh/currencies/chianetwork/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async meme() {
+    const url = 'https://www.coincarp.com/zh/currencies/meme-bsc/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
+    await this.reply(segment.image(imgBuffer));
+  }
+
+  async pepe() {
+    const url = 'https://www.coincarp.com/zh/currencies/pepe/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 800 });
+
+    const imgBuffer = await page.screenshot();
+
+    await browser.close();
+
     await this.reply(segment.image(imgBuffer));
   }
 }
