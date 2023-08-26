@@ -94,10 +94,51 @@ export class WebPreview extends plugin {
   async previewKaspa() {
     await this.takeScreenshot('https://www.coincarp.com/zh/currencies/kaspa/');
   }
+  async previewRavencoin() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/ravencoin/');
+  }
+  async previewBitcoin() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/bitcoin/');
+  }
+  async previewChia() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/chianetwork/');
+  }
+  async previewclore() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/clore-ai/price/');
+  }
+  async previewdoge() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/dogecoin/');
+  }
+  async previewergo() {
+    await this.takeScreenshot('https://www.bibiqing.com/coin/ergoplatform');
+  }
+  async previeweth() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/ethereum/');
+  }
+  async previewnexa() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/nexa-org/');
+  }
+  async previewrvn() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/ravencoin/');
+  }
+  async neoxa() {
+    await this.takeScreenshot('https://www.mytokencap.com/zh/currencies/neox/821838646/');
+  }
+  async rxd() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/radiant/');
+  }
+  async xch() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/chianetwork/');
+  }
+  async meme() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/meme-bsc/');
+  }
+  async pepe() {
+    await this.takeScreenshot('https://www.coincarp.com/zh/currencies/pepe/');
+  }
   // 为其他加密货币定义类似的方法
   //MD，累死我了
   //AWA
   //这优化
   //欸嘿
-  //摆烂~
 }
