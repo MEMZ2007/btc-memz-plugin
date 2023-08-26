@@ -229,9 +229,9 @@ export class BtcUpdate extends plugin {
             await this.reply('请先安装git')
             return false
         }
-        return true
+        
     }
-    async updateLog() {
+  async updateLog() {
 
   let plugin = 'btc-memz-plugin'
   
@@ -278,4 +278,5 @@ export class BtcUpdate extends plugin {
   await this.reply(log)
 
 }
+
 }
