@@ -5,8 +5,8 @@
 *
 * */
 export const helpCfg = {
-  title: '饼干帮助',
-  subTitle: 'biscuit-bot && biscuit-Plugin',
+  title: 'BTC帮助',
+  subTitle: 'Yunzai-bot && btc-memz-plugin',
   columnCount: 3,
   colWidth: 265,
   theme: 'all',
@@ -25,35 +25,35 @@ export const helpCfg = {
 
 export const helpList = [
 {
-  group: '饼干插件功能',
+  group: '币种功能',
   list: [{
     icon: 37,
-    title: '#查天气＋地区',
-    desc: '查看某地的天气哦！'
+    title: 'dnx',
+    desc: 'cnm！'
   }, {
     icon: 38,
-    title: '#ping 域名/IP',
-    desc: '看看你服务器的状况吧'
+    title: 'kas',
+    desc: 'cnm！'
   }, {
     icon: 39,
-    title: '#查IP+IP',
-    desc: '看看你好兄弟的位置'
+    title: 'rvn',
+    desc: 'cnm！'
   }, {
     icon: 40,
-    title: '#火星ai+文字',
-    desc: '问AI一些问题'  
+    title: 'btc',
+    desc: 'cnm！'  
   }, {
     icon: 41,
-    title: '#kun音乐',
-    desc: '小黑子，看你呢'
+    title: 'chia',
+    desc: 'cnm！'
   }]
   }, { 
     group: '管理命令，仅管理员可用', 
     auth: 'master', 
     list: [{ 
     icon: 35, 
-    title: '#biscuit更新', 
-    desc: '更新饼干插件' 
+    title: '#btc更新', 
+    desc: '更新BTC插件' 
 }]
 }]
 export const isSys = true
