@@ -1,3 +1,4 @@
+//原作者我也忘了是谁了，有知道的嘛？我加上，阿巴
 import { segment } from "oicq";
 import plugin from '../../../lib/plugins/plugin.js';
 import fetch from "node-fetch";
@@ -27,7 +28,7 @@ export class kelitaocan extends plugin {
   }
 
 async help(e) {
-  if (this.e.isMaster) {
+  if (e.isMaster) {
     await this.reply(`cmd帮助：\n呼出帮助：\n#cmd\n单条命令执行：\n#cmd [命令]\n多条命令执行：\n#cmd [命令1] && [命令2]  && [命令3] && ......\n\n注意：\n1.每次执行#cmd命令后都会回到/root\n2.该插件具有一定破坏性，所以仅bot的主人可用\n3.部分变量无法使用甚至报错，这是正常的`);
     } else {
     await this.reply("凡人，休得僭越！");
@@ -35,7 +36,7 @@ async help(e) {
     }
 }
 async zhongduan(e) {
-  if (!(this.e.isMaster)) {
+  if (!e.isMaster) {
      await this.reply("凡人，休得僭越！");
     return;
     }
