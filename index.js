@@ -5,7 +5,7 @@ const files = fs.readdirSync('./plugins/btc-memz-plugin/apps').filter(file => fi
 
 let ret = []
 
-logger.info(`\n\t${chalk.white(`┌───────────────────────────┐`)}\t\n\t${chalk.cyan(`「btc-memz-plugin载入中···」`)}\n\t${chalk.blue(`「载入成功！」`)}\n\t${chalk.yellow(`「交流群号：114514   」`)}\n\t${chalk.white(`└───────────────────────────┘`)}\t`);
+logger.info(`\n\t${chalk.white(`┌───────────────────────────┐`)}\t\n\t${chalk.cyan(`「btc-memz-plugin载入中···」`)}\n\t${chalk.blue(`「载入成功！」`)}\n\t${chalk.yellow(`「交流群号：235589956   」`)}\n\t${chalk.white(`└───────────────────────────┘`)}\t`);
 files.forEach((file) => {
   ret.push(import(`./apps/${file}`))
 })
