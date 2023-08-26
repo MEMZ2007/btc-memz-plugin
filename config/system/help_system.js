@@ -46,14 +46,54 @@ export const helpList = [
     icon: 41,
     title: 'chia',
     desc: 'cnm！'
+  }, {
+    icon: 42,
+    title: 'clore',
+    desc: 'cnm！'
+  }, {
+    icon: 43,
+    title: 'doge',
+    desc: 'cnm！'
+  }, {
+    icon: 44,
+    title: 'ergo',
+    desc: 'cnm！'
+  }, {
+    icon: 45,
+    title: 'eth',
+    desc: 'cnm！'
+  }, {
+    icon: 46,
+    title: 'nexa',
+    desc: 'cnm！'
+  }, {
+    icon: 47,
+    title: 'neoxa',
+    desc: 'cnm！'
+  }, {
+    icon: 48,
+    title: 'rxd',
+    desc: 'cnm！'
+  }, {
+    icon: 49,
+    title: 'xch',
+    desc: 'cnm！'
+  }, {
+    icon: 50,
+    title: 'meme',
+    desc: 'cnm！'
+  }, {
+    icon: 51,
+    title: 'pepe',
+    desc: 'cnm！'
   }]
   }, { 
     group: '管理命令，仅管理员可用', 
     auth: 'master', 
     list: [{ 
     icon: 35, 
-    title: '#btc更新', 
-    desc: '更新BTC插件' 
+    title: '#btc(强制)更新', 
+    desc: '(强制)更新BTC插件' 
 }]
 }]
 export const isSys = true
