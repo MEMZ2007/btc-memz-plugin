@@ -89,34 +89,49 @@ export const helpList = [
   }]
   }, 
   
-{ 
-    group: '站长工具', 
+
+
+    { 
+    group: '生活相关', 
     list: [{ 
     icon: 34, 
-    title: '#ping+网址', 
-    desc: 'ping网站测速' 
-}]
+    title: '#台风', 
+    desc: '查询西太平洋台风位置' 
 }, {
     icon: 42,
     title: '#域名+网址',
     desc: '域名信息查询'
   }]
+}, 
+  
+
+
+  { 
+    group: '站长工具', 
+    list: [{ 
+    icon: 34, 
+    title: '#ping+网址', 
+    desc: 'ping网站测速' 
+}, {
+    icon: 42,
+    title: '#域名+网址',
+    desc: '域名信息查询'
+  }]
+}, 
 
 
 
-
-{
-"group": "管理员功能",
-  "auth": "master",
-  "list":  [{
-    "icon": 26,
-    "title": "#btc(强制)更新", "desc": "btc插件(强制)更新"
-  },
-  {
-    "icon": 11,
-    "title": "#cmd", "desc": "执行简单的命令"
-  }
-  ]
-
+{ 
+    group: '管理命令，仅管理员可用', 
+    auth: 'master', 
+    list: [{ 
+    icon: 35, 
+    title: '#btc(强制)更新', 
+    desc: '(强制)更新BTC插件' 
+},{ 
+    icon: 25, 
+    title: '#cmd', 
+    desc: '执行一些简单的命令' 
+}]
 }]
 export const isSys = true
