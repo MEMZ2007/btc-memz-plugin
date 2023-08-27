@@ -93,7 +93,11 @@ export const helpList = [
     icon: 34, 
     title: '#ping+网址', 
     desc: 'ping网站测速' 
-}]
+}, {
+    icon: 42,
+    title: '#域名+网址',
+    desc: '域名信息查询'
+  }]
 }, { 
     group: '管理命令，仅管理员可用', 
     auth: 'master', 
