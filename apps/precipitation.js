@@ -27,7 +27,7 @@ export class PrecipitationScreenshot extends plugin {
       await page.goto(url);
 
       // 等待一段时间，可以根据实际情况修改等待时间
-      await page.waitForTimeout(10000); // 等待 10 秒钟
+      await page.waitForTimeout(3000); // 等待 3 秒钟
 
       // 截取网页截图
       const imgBuffer = await page.screenshot();
