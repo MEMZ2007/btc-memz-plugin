@@ -8,8 +8,8 @@ git clone --depth=1 https://gitee.com/memz2007/btc-memz-plugin ./plugins/btc-mem
 ```
 
 ### 指令
- #btc/eth/dnx/rvn/chia/kas/clore.....等币种
- 目前还在继续更新添加各种币种包括优化。
+ 使用`#btc帮助`查看指令
+ 目前还在继续更新添加各种功能包括优化。
 
 ### 其他
  交流群[点击加群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5HdR6UtrBmBrRGOyBYseWYVYx29ZEhxv&authKey=J%2Be5%2FDn%2BUF7lGKhgPa4ybyNFKx0ZMRBlnQuN7LldmhGT0ly%2FEgxiDIl%2BcRbmgOwX&noverify=0&group_code=235589956)

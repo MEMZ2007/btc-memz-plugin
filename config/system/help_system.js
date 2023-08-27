@@ -6,7 +6,7 @@
 * */
 export const helpCfg = {
   title: 'BTC帮助',
-  subTitle: 'Yunzai-bot && btc-memz-plugin',
+  subTitle: 'MEMZ-bot && btc-memz-plugin',
   columnCount: 3,
   colWidth: 265,
   theme: 'all',
@@ -46,14 +46,92 @@ export const helpList = [
     icon: 41,
     title: 'chia',
     desc: 'cnm！'
+  }, {
+    icon: 42,
+    title: 'clore',
+    desc: 'cnm！'
+  }, {
+    icon: 43,
+    title: 'doge',
+    desc: 'cnm！'
+  }, {
+    icon: 44,
+    title: 'ergo',
+    desc: 'cnm！'
+  }, {
+    icon: 45,
+    title: 'eth',
+    desc: 'cnm！'
+  }, {
+    icon: 46,
+    title: 'nexa',
+    desc: 'cnm！'
+  }, {
+    icon: 47,
+    title: 'neoxa',
+    desc: 'cnm！'
+  }, {
+    icon: 48,
+    title: 'rxd',
+    desc: 'cnm！'
+  }, {
+    icon: 49,
+    title: 'xch',
+    desc: 'cnm！'
+  }, {
+    icon: 50,
+    title: 'meme',
+    desc: 'cnm！'
+  }, {
+    icon: 51,
+    title: 'pepe',
+    desc: 'cnm！'
   }]
-  }, { 
+  }, 
+  
+
+
+    { 
+    group: '生活相关', 
+    list: [{ 
+    icon: 3, 
+    title: '#台风', 
+    desc: '查询西太平洋台风位置' 
+}, {
+    icon: 2,
+    title: '#降水',
+    desc: '获取降水数据截图'
+  }]
+}, 
+  
+
+
+  { 
+    group: '站长工具', 
+    list: [{ 
+    icon: 34, 
+    title: '#ping+网址', 
+    desc: 'ping网站测速' 
+}, {
+    icon: 42,
+    title: '#域名+网址',
+    desc: '域名信息查询'
+  }]
+}, 
+
+
+
+{ 
     group: '管理命令，仅管理员可用', 
     auth: 'master', 
     list: [{ 
     icon: 35, 
-    title: '#btc更新', 
-    desc: '更新BTC插件' 
+    title: '#btc(强制)更新', 
+    desc: '(强制)更新BTC插件' 
+},{ 
+    icon: 25, 
+    title: '#cmd', 
+    desc: '执行一些简单的命令' 
 }]
 }]
 export const isSys = true

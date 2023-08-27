@@ -1,0 +1,10 @@
+{
+    "name": "btc-memz-plugin",
+    "version": "V 1.0.0",
+    "author": "MEMZ+枫叶+枫林",
+    "type": "module",
+    "dependencies": {
+        "node-fetch": "^3.3.1",
+        "puppeteer": "^19.11.1"
+    }
+}

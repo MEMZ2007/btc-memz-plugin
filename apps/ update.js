@@ -22,7 +22,7 @@ export class BtcUpdate extends plugin {
             priority: 10,
             rule: [
                 {
-                    reg: '^#(BTC|btc)(插件)?(强制)?更新$',
+                    reg: '^#btc(插件)?(强制)?更新$',
                     fnc: 'update'
                 }
             ]
@@ -34,10 +34,9 @@ export class BtcUpdate extends plugin {
      * @returns
      */
     async update() {
-        if (!(this.e.isMaster || this.e.user_id == 197728340 || this.e.user_id == 2954439244)) {
+        if (!(this.e.isMaster || this.e.user_id == 197728340 || this.e.user_id == 2954439244 || this.e.user_id == 670979892)) {
             return true
         }
-
         /** 检查是否正在更新中 */
         if (uping) {
             await this.reply('已有命令更新中..请勿重复操作')
