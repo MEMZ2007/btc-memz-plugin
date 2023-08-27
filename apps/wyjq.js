@@ -19,7 +19,8 @@ export class wyjq extends plugin {
   }
 
   async preview(e) {
-    const url = url_list[e.msg.replace(/#网页截图/g,'').trim()];
+    await this.reply("正在截图中...")
+    const url = e.msg.replace(/#网页截图/g,'').trim();
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
