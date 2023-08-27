@@ -10,7 +10,7 @@ git clone --depth=1 https://gitee.com/memz2007/btc-memz-plugin ./plugins/btc-mem
 ### 指令
  使用`#btc帮助`查看指令
 
- 新增屌图功能，自行查看。
+ 新增屌图功能，没写进帮助 #随机图片/白子/白上吹雪。
 
  目前还在继续更新添加各种功能包括优化。
 
