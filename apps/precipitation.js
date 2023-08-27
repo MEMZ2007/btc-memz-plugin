@@ -21,7 +21,7 @@ export class PrecipitationScreenshot extends plugin {
     try {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
-      const url = 'https://data.cma.cn/dataGis/static/grid4/#/pcindex';
+      const url = 'http://www.weather.com.cn/radar/';
 
       // 打开指定网页
       await page.goto(url);
