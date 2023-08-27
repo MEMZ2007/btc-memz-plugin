@@ -18,7 +18,7 @@ export class DomainInfo extends plugin {
   }
 
   async getDomainInfo(e) {
-    let domain = e.msg.match(/#域名\s*(.+)/)[1];
+    let domain = e.msg.match(/#?域名\s*(.+)/)[1];
     let url = `https://api.asilu.com/php/domain.php?domain=${encodeURIComponent(domain)}`;
 
     try {
