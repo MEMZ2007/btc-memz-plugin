@@ -7,8 +7,8 @@
 export const helpCfg = {
   title: 'BTC帮助',
   subTitle: 'MEMZ-bot && btc-memz-plugin',
-  columnCount: 4,
-  colWidth: 198,
+  columnCount: 3,
+  colWidth: 265,
   theme: 'all',
   themeExclude: ['default'],
   style: {
