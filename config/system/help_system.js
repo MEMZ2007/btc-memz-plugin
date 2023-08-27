@@ -99,8 +99,8 @@ export const helpList = [
     desc: '查询西太平洋台风位置' 
 }, {
     icon: 42,
-    title: '#域名+网址',
-    desc: '域名信息查询'
+    title: '#降水',
+    desc: '获取降水数据截图'
   }]
 }, 
   
