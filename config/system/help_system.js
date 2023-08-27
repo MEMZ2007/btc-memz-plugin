@@ -94,11 +94,11 @@ export const helpList = [
     { 
     group: '生活相关', 
     list: [{ 
-    icon: 34, 
+    icon: 3, 
     title: '#台风', 
     desc: '查询西太平洋台风位置' 
 }, {
-    icon: 42,
+    icon: 2,
     title: '#降水',
     desc: '获取降水数据截图'
   }]
