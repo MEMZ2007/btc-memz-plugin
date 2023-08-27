@@ -10,7 +10,7 @@ export class DomainInfo extends plugin {
       priority: 5000,
       rule: [
         {
-          reg: '/^#?域名\s*(.+)/',
+          reg: '^#?域名\s*(.+)',
           fnc: 'getDomainInfo',
         },
       ],
