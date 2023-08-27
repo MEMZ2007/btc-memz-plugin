@@ -7,12 +7,12 @@ export class WebPreview extends plugin {
   constructor() {
     super({
       name: 'api叼图发送',
-      dsc: '发送#api,返回api发送图片',
+      dsc: '发送#随机图片,返回api发送图片',
       event: 'message',
       priority: 100,
       rule: [
         {
-          reg: '^#?api$', 
+          reg: '^#?随机图片$', 
           fnc: 'preview' 
         }
       ]
