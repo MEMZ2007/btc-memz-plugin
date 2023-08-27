@@ -20,10 +20,8 @@ export class TyphoonInfo extends plugin {
   async getTyphoonInfo(e) {
     try {
       const browser = await puppeteer.launch();
-      const page = await browser.newPage();
       const url = 'http://typhoon.nmc.cn/web.html';
       await page.goto(url);
-      await page.waitForTimeout(5000);
       const imgBuffer = await page.screenshot();
       await browser.close();
       await this.reply(segment.image(imgBuffer));
