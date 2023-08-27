@@ -16,7 +16,7 @@ export class WebPreview extends plugin {
           fnc: 'preview' 
         },
         {
-          reg: '^#白上吹雪$',
+          reg: '^#?白上吹雪$',
           fnc: 'previewBlizzard'
         }
       ]
