@@ -6,7 +6,7 @@
 * */
 export const helpCfg = {
   title: 'BTC帮助',
-  subTitle: 'Yunzai-bot && btc-memz-plugin',
+  subTitle: 'MEMZ-bot && btc-memz-plugin',
   columnCount: 3,
   colWidth: 265,
   theme: 'all',
