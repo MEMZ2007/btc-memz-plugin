@@ -26,7 +26,7 @@ export class DomainInfo extends plugin {
       const data = await response.json();
       let info = '';
       if (data.domain) {
-        info = `域名: ${data.domain}\n注册时间: ${data.creation_time}\n过期时间: ${data.expiration_time}\n域名商: ${data.registrar}\nDNS服务器: ${data.dns_servers.join('\n')}`;
+        info = `域名: ${data.domain}\n注册时间: ${data.creation_time}\n过期时间: ${data.expiration_time}\n域名商: ${data.registrar}\nDNS服务器:\n ${data.dns_servers.join('\n')}`;
       } else {
         info = '查询失败，无法获取域名信息';
       }
