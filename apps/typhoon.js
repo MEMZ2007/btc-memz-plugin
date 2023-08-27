@@ -10,7 +10,7 @@ export class TyphoonScreenshot extends plugin {
       priority: 100,
       rule: [
         {
-          reg: '^#台风$',
+          reg: '^#?台风$',
           fnc: 'captureTyphoonScreenshot',
         },
       ],
