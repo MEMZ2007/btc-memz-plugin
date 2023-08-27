@@ -18,6 +18,10 @@ export class WebPreview extends plugin {
         {
           reg: '^#?白上吹雪$',
           fnc: 'previewBlizzard'
+        },
+        {
+          reg: '^#?白子$',
+          fnc: 'baizi'
         }
       ]
     });
@@ -32,6 +36,12 @@ export class WebPreview extends plugin {
 
   async previewBlizzard() {
     const url = 'https://oe42057158.zicp.fun/';
+    const response = await fetch(url);
+    const buffer = await response.buffer();
+    await this.reply(segment.image(buffer));
+  }
+  async baizi() {
+    const url = 'http://43.143.247.43:20101/';
     const response = await fetch(url);
     const buffer = await response.buffer();
     await this.reply(segment.image(buffer));
