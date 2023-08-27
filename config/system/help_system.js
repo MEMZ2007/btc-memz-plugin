@@ -88,17 +88,12 @@ export const helpList = [
     desc: 'cnm！'
   }]
   }, { 
-    group: '关于生活', 
-    list: [{ 
-    icon: 34, 
-    title: '#台风', 
-    desc: '查看西太平洋台风位置' 
-}, { 
     group: '站长工具', 
     list: [{ 
     icon: 34, 
     title: '#ping+网址', 
     desc: 'ping网站测速' 
+}]
 }, {
     icon: 42,
     title: '#域名+网址',
