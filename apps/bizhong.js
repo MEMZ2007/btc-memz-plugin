@@ -29,7 +29,7 @@ export class WebPreview extends plugin {
       priority: 100,
       rule: [
         {
-          reg: `^#(dnx|kas|rvn|btc|chia|clore|doge|ergo|eth|nexa|neoxa|rxd|xch|meme|pepe)$`,
+          reg: `^#?(dnx|kas|rvn|btc|chia|clore|doge|ergo|eth|nexa|neoxa|rxd|xch|meme|pepe)$`,
           fnc: 'preview'
         },
       ]
