@@ -27,7 +27,7 @@ const getLine = function (line) {
 }
 
 try {
-  let packageJson = JSON.parse(fs.readFileSync(`${process.cwd()}/plugins/cunyx-plugin/package.json`, 'utf8'));
+  let packageJson = JSON.parse(fs.readFileSync(`${process.cwd()}/plugins/btc-memz-plugin/package.json`, 'utf8'));
   currentVersion = packageJson.version;
 }catch(err){}
 
