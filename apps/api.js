@@ -22,6 +22,10 @@ export class WebPreview extends plugin {
         {
           reg: '^#?白子$',
           fnc: 'baizi'
+        },
+        {
+          reg: '^#?(关于群友|屌图|vits之屌图)$',
+          fnc: 'vits'
         }
       ]
     });
@@ -42,6 +46,12 @@ export class WebPreview extends plugin {
   }
   async baizi() {
     const url = 'http://43.143.247.43:20101/';
+    const response = await fetch(url);
+    const buffer = await response.buffer();
+    await this.reply(segment.image(buffer));
+  }
+  async vits() {
+    const url = 'http://43.143.247.43:20102/';
     const response = await fetch(url);
     const buffer = await response.buffer();
     await this.reply(segment.image(buffer));
