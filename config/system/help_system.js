@@ -28,67 +28,15 @@ export const helpList = [
   group: '币种功能',
   list: [{
     icon: 37,
-    title: 'dnx',
-    desc: 'cnm！'
-  }, {
-    icon: 38,
-    title: 'kas',
-    desc: 'cnm！'
-  }, {
-    icon: 39,
-    title: 'rvn',
-    desc: 'cnm！'
-  }, {
-    icon: 40,
-    title: 'btc',
-    desc: 'cnm！'  
-  }, {
-    icon: 41,
-    title: 'chia',
-    desc: 'cnm！'
-  }, {
-    icon: 42,
-    title: 'clore',
-    desc: 'cnm！'
-  }, {
-    icon: 43,
-    title: 'doge',
-    desc: 'cnm！'
-  }, {
-    icon: 44,
-    title: 'ergo',
-    desc: 'cnm！'
-  }, {
-    icon: 45,
-    title: 'eth',
-    desc: 'cnm！'
-  }, {
-    icon: 46,
-    title: 'nexa',
-    desc: 'cnm！'
-  }, {
-    icon: 47,
-    title: 'neoxa',
-    desc: 'cnm！'
-  }, {
-    icon: 48,
-    title: 'rxd',
-    desc: 'cnm！'
-  }, {
-    icon: 49,
-    title: 'xch',
-    desc: 'cnm！'
-  }, {
-    icon: 50,
-    title: 'meme',
-    desc: 'cnm！'
-  }, {
-    icon: 51,
-    title: 'pepe',
-    desc: 'cnm！'
+    title: '#币种列表',
+    desc: '查看可供查询的币种列表'
   }]
   }, 
   
+
+
+
+
 
 
     { 
@@ -122,6 +70,8 @@ export const helpList = [
   
 
 
+
+
   { 
     group: '站长工具', 
     list: [{ 
@@ -134,6 +84,9 @@ export const helpList = [
     desc: '域名信息查询'
   }]
 }, 
+
+
+
 
 
 
