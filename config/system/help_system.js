@@ -105,6 +105,10 @@ export const helpList = [
     icon: 2,
     title: '#随机图片/白子/白上吹雪',
     desc: '获取api图片'
+  }, {
+    icon: 28,
+    title: '#骚扰查询+手机号',
+    desc: '骚扰电话查询'
   }]
 }, 
   
