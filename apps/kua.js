@@ -1,5 +1,5 @@
-import fs from 'fs';
 import plugin from '../../../lib/plugins/plugin.js';
+import fs from 'fs';
 
 export class ComplimentPlugin extends plugin {
   constructor() {
@@ -10,16 +10,16 @@ export class ComplimentPlugin extends plugin {
       priority: 50,
       rule: [
         {
-          reg: /^#夸@([^ ]+)(\d*?)次?$/,
-          fnc: 'sendCompliment'
+          reg: /^#夸@(.+?)(\d*?)次?$/,
+          fnc: 'sendCompliments'
         },
       ]
     });
   }
 
-  async sendCompliment(e) {
+  async sendCompliments(e) {
     const msg = e.msg;
-    const matches = msg.match(/^#夸@([^ ]+)(\d*?)次?$/);
+    const matches = msg.match(/^#夸@(.+?)(\d*?)次?$/);
 
     if (matches) {
       const targetUser = matches[1];
@@ -27,17 +27,17 @@ export class ComplimentPlugin extends plugin {
       const compliments = await this.loadComplimentsFromFile('plugins/btc-memz-plugin/apps/api/kua.txt');
 
       if (!compliments || compliments.length === 0) {
-        await this.reply('无法获取夸赞内容。');
+        await this.reply(`[ICQQ:at,qq=${e.user}] 无法获取夸赞内容。`);
         return;
       }
 
       for (let i = 0; i < complimentCount; i++) {
         const randomIndex = Math.floor(Math.random() * compliments.length);
         const complimentMessage = compliments[randomIndex];
-        await this.reply(`[CQ:at,qq=${targetUser}] ${complimentMessage}`);
+        await this.reply(`[ICQQ:at,qq=${targetUser}] ${complimentMessage}`);
 
         if (i < complimentCount - 1) {
-          await this.sleep(1000); 
+          await this.sleep(1000);
         }
       }
     }
