@@ -10,7 +10,7 @@ export class ICPQueryPlugin extends plugin {
       priority: 50,
       rule: [
         {
-          reg: /^#?(icp|ICP)查询 (.+)$/,
+          reg: /^#icp查询 (.+)$/,
           fnc: 'queryICP',
         },
       ],
@@ -18,8 +18,9 @@ export class ICPQueryPlugin extends plugin {
   }
 
   async queryICP(e) {
-    const domain = e.match[1];
+    const domain = e.match[1].trim(); // 获取用户输入的域名
 
+    // 调用ICP查询API
     const apiUrl = `https://api.uomg.com/api/icp?domain=${encodeURIComponent(domain)}`;
     const response = await fetch(apiUrl);
 
@@ -30,7 +31,7 @@ export class ICPQueryPlugin extends plugin {
 
     const data = await response.json();
 
-    if (data.code === 1) {
+    if (data.code === '1') {
       const icpInfo = `域名：${data.domain}\nICP备案号：${data.icp}`;
       await this.reply(icpInfo);
     } else {
