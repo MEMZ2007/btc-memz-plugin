@@ -113,6 +113,10 @@ export const helpList = [
     icon: 27,
     title: '#天气+地点',
     desc: '各地天气查询'
+  }, {
+    icon: 7,
+    title: '#开源中国',
+    desc: '获取开源中国的最新信息'
   }]
 }, 
   
