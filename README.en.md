@@ -1,18 +1,24 @@
 ### introduce
 
-This plugin is used to query the market price of virtual currency, including some other interesting features
+ This plugin is used to query the market price of virtual currency, including some other interesting features
 
 ### Installation
 
 ```
-git clone --depth=1 https://gitee.com/Alitax_admin/btc-memz-plugin ./plugins/btc-memz-plugin
+git clone --depth=1 https://gitee.com/memz2007/btc-memz-plugin ./plugins/btc-memz-plugin
 ```
 
-#### Gitee Feature
+### directives
+ Use '#btc帮助' to view instructions
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+ It is currently being updated to add various features, including optimizations.
+
+### other
+ Communication group[Click to add group](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5HdR6UtrBmBrRGOyBYseWYVYx29ZEhxv&authKey=J%2Be5%2FDn%2BUF7lGKhgPa4ybyNFKx0ZMRBlnQuN7LldmhGT0ly%2FEgxiDIl%2BcRbmgOwX&noverify=0&group_code=235589956)
+
+ MEMZ&Signing server address
+
+ Interface one http://43.143.247.43:11452/sign?key=114514
+
+ Interface two http://43.143.247.43:11452/sign?key=114514
