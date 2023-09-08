@@ -21,7 +21,7 @@ export class FullPageScreenshot extends plugin {
     try {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
-      const url = 'http://www.weather.com.cn/radar/';
+      const url = 'https://www.weatherol.cn/pop.html?cityid=101010100';
 
       // 打开指定网页
       await page.goto(url);
