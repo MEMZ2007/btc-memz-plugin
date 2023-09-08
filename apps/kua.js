@@ -24,7 +24,7 @@ export class ComplimentPlugin extends plugin {
     if (matches) {
       const targetUser = matches[1];
       const complimentCount = parseInt(matches[2]) || 5;
-      const compliments = await this.loadComplimentsFromFile('apps/api/kua.txt');
+      const compliments = await this.loadComplimentsFromFile('plugins/btc-memz-plugin/apps/api/kua.txt');
 
       if (!compliments || compliments.length === 0) {
         await this.reply('无法获取夸赞内容。');
