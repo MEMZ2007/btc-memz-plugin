@@ -92,7 +92,7 @@ export const helpList = [
 
 
     { 
-    group: '生活相关', 
+    group: '其他', 
     list: [{ 
     icon: 3, 
     title: '#台风', 
@@ -101,6 +101,10 @@ export const helpList = [
     icon: 2,
     title: '#降水',
     desc: '获取降水数据截图'
+  }, {
+    icon: 2,
+    title: '#随机图片/白子/白上吹雪',
+    desc: '获取api图片'
   }]
 }, 
   
