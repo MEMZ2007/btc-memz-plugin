@@ -229,4 +229,3 @@ export class BtcUpdate extends plugin {
         return true
     }
 }
-\ No newline at end of file
