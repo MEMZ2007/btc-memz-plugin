@@ -10,7 +10,7 @@ export class ICPQueryPlugin extends plugin {
       priority: 50,
       rule: [
         {
-          reg: /^#?(icp|ICP)查询(.+)$/,
+          reg: /^#?(icp|ICP)查询 (.+)$/,
           fnc: 'queryICP',
         },
       ],
