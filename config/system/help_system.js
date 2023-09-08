@@ -109,6 +109,10 @@ export const helpList = [
     icon: 28,
     title: '#骚扰查询+手机号',
     desc: '骚扰电话查询'
+  }, {
+    icon: 27,
+    title: '#天气+地点',
+    desc: '各地天气查询'
   }]
 }, 
   
