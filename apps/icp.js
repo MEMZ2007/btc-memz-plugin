@@ -12,24 +12,24 @@ export class ICPCheck extends plugin {
 
       rule: [
         {
-          reg: '^#?(icp|ICP)查询\s*(.+)',
+          reg: '^#?icp查询 (.+)',
           fnc: 'checkICP'
         }
       ]
     });
   }
 
-async checkICP(e) {
-  let domain = e.msg.match(/#?(icp|ICP)查询\s*(.+)/)[1];
-  let apiUrl = `https://api.uomg.com/api/icp?domain=${encodeURIComponent(domain)}`;
+    async checkICP(e) {
+    const domain = e.match[1]; // 提取用户消息中的域名
+    const apiUrl = `https://api.uomg.com/api/icp?domain=${encodeURIComponent(domain)}`;
 
-  try {
-    let response = await fetch(apiUrl);
+try {
+    const response = await fetch(apiUrl);
     if (response.ok) {
-      let data = await response.json();
+      const data = await response.json();
       if (data && data.code === '1') {
-        let icp = data.icp;
-        let replyMsg = `${domain}的ICP备案号是：${icp}`;
+        const icp = data.icp;
+        const replyMsg = `${domain}的ICP备案号是：${icp}`;
         await this.reply(replyMsg);
       } else {
         await this.reply(`未找到与${domain}相关的ICP备案信息。`);
