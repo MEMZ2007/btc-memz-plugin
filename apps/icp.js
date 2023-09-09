@@ -12,7 +12,7 @@ export class ICPCheck extends plugin {
 
       rule: [
         {
-          reg: '^#?icp查询 (.+)',
+          reg: '^#?icp查询\s*(.+)',
           fnc: 'checkICP'
         }
       ]
@@ -20,7 +20,7 @@ export class ICPCheck extends plugin {
   }
 
     async checkICP(e) {
-    const domain = e.match[1]; // 提取用户消息中的域名
+    const domain = e.match(/#?icp查询\s*(.+)/)[1]; // 提取用户消息中的域名
     const apiUrl = `https://api.uomg.com/api/icp?domain=${encodeURIComponent(domain)}`;
 
 try {
