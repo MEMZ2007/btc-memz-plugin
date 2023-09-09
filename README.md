@@ -1,6 +1,9 @@
 ### 介绍
  此插件用来查询虚拟货币市场价格，包括一些其他的有趣功能
 
+![Visitor Count](https://profile-counter.glitch.me/btc-memz-plugin/count.svg)
+
+
 ### 安装
 
 ```
