@@ -20,16 +20,16 @@ export class ICPCheck extends plugin {
   }
 
 async checkICP(e) {
-  const domain = e.msg.match(/#?(icp|ICP)查询\s*(.+)/)[1];
-  const apiUrl = `https://api.uomg.com/api/icp?domain=${encodeURIComponent(domain)}`;
+  let domain = e.msg.match(/#?(icp|ICP)查询\s*(.+)/)[1];
+  let apiUrl = `https://api.uomg.com/api/icp?domain=${encodeURIComponent(domain)}`;
 
   try {
-    const response = await fetch(apiUrl);
+    let response = await fetch(apiUrl);
     if (response.ok) {
-      const data = await response.json();
+      let data = await response.json();
       if (data && data.code === '1') {
-        const icp = data.icp;
-        const replyMsg = `${domain}的ICP备案号是：${icp}`;
+        let icp = data.icp;
+        let replyMsg = `${domain}的ICP备案号是：${icp}`;
         await this.reply(replyMsg);
       } else {
         await this.reply(`未找到与${domain}相关的ICP备案信息。`);
