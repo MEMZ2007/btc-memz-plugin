@@ -106,7 +106,7 @@ export class BtcUpdate extends plugin {
             let log = await this.getLog('btc-memz-plugin')
             let line = log.split('\n\n').length
             let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/memz2007/btc-memz-plugin/repository/stats/master'
-            log = await common.makeForwardMsg(this.e, `${plugin}更新日志，共${line}条`, log, end)
+            log = await common.makeForwardMsg(this.e, [log, end], `${plugin}更新日志，共${line}条`)
             await this.reply(log)
         }
 
