@@ -1,16 +1,23 @@
 ### 介绍
  此插件用来查询虚拟货币市场价格，包括一些其他的有趣功能
 
-### 安装
 
+### 安装
+### gitee
 ```
 git clone --depth=1 https://gitee.com/memz2007/btc-memz-plugin ./plugins/btc-memz-plugin
+```
+### github
+```
+git clone --depth=1 https://github.com/memz2007/btc-memz-plugin ./plugins/btc-memz-plugin
 ```
 
 ### 指令
  使用`#btc帮助`查看指令
 
- 新增屌图功能，没写进帮助 #随机图片/白子/白上吹雪。
+### 访问次数
+![Visitor Count](https://profile-counter.glitch.me/btc-memz-plugin/count.svg)
+
 
  目前还在继续更新添加各种功能包括优化。
 
