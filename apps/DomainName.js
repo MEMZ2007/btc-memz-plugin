@@ -33,7 +33,7 @@ export class DomainInfo extends plugin {
       await this.reply(info);
     } catch (error) {
       console.error('[域名信息查询] 接口请求失败:', error);
-      await this.reply('域名信息查询接口请求失败，请联系主人更换接口');
+      await this.reply('域名信息查询接口请求失败，请联系作者更换接口');
     }
   }
 }
