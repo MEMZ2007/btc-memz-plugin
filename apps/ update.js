@@ -9,111 +9,94 @@ const { exec, execSync } = require('child_process')
 
 // 是否在更新中
 let uping = false
-
 /**
  * 处理插件更新
  */
-export class BtcUpdate extends plugin {
+export class Update extends plugin {
     constructor() {
         super({
-            name: '[BTC插件]更新插件',
-            dsc: '更新BTC插件',
+            name: '更新BTC插件',
+            dsc: '更新插件',
             event: 'message',
             priority: 10,
             rule: [
-                {                    
-                    reg: '^#btc(插件)?(强制)?更新$',
+                {
+                    reg: '^#*(btc|BTC)(插件)?(强制)?更新$',
                     fnc: 'update'
                 }
             ]
         })
-
     }
-
     /**
-     * rule - 更新BTC插件
+     * rule - 更新btc-memz-plugin插件
      * @returns
      */
     async update() {
-        if (!(this.e.isMaster || this.e.user_id == 197728340 || this.e.user_id == 2954439244 || this.e.user_id == 670979892)) {
-            return true
-        }
-
+        if (!(this.e.isMaster || this.e.user_id == 197728340)) { return true }
         /** 检查是否正在更新中 */
         if (uping) {
             await this.reply('已有命令更新中..请勿重复操作')
             return
         }
-
         /** 检查git安装 */
-        if (!(await this.checkGit())) {
-            return
-        }
-
+        if (!(await this.checkGit())) return
         const isForce = this.e.msg.includes('强制')
-
         /** 执行更新 */
         await this.runUpdate(isForce)
-
         /** 是否需要重启 */
         if (this.isUp) {
+            // await this.reply("更新完毕，请重启云崽后生效")
             setTimeout(() => this.restart(), 2000)
         }
     }
-
     restart() {
         new Restart(this.e).restart()
     }
-
     /**
-     * BTC插件更新函数
+     * btc-memz-plugin插件更新函数
      * @param {boolean} isForce 是否为强制更新
      * @returns
      */
     async runUpdate(isForce) {
-        const _path = './plugins/btc-memz-plugin/'  // Update the path to your BTC plugin folder
+        const _path = './plugins/btc-memz-plugin/'
         let command = `git -C ${_path} pull --no-rebase`
-
         if (isForce) {
             command = `git -C ${_path} reset --hard origin && ${command}`
             this.e.reply('正在执行强制更新操作，请稍等')
         } else {
             this.e.reply('正在执行更新操作，请稍等')
         }
-
         /** 获取上次提交的commitId，用于获取日志时判断新增的更新日志 */
         this.oldCommitId = await this.getcommitId('btc-memz-plugin')
-
         uping = true
         let ret = await this.execSync(command)
         uping = false
 
         if (ret.error) {
-            logger.mark(`${this.e.logFnc} 更新失败：BTC插件`)
+            logger.mark(`${this.e.logFnc} 更新失败：btc-memz-plugin插件`)
             this.gitErr(ret.error, ret.stdout)
             return false
         }
-
         /** 获取插件提交的最新时间 */
         let time = await this.getTime('btc-memz-plugin')
 
         if (/(Already up[ -]to[ -]date|已经是最新的)/.test(ret.stdout)) {
-            await this.reply(`BTC插件已经是最新版本\n最后更新时间：${time}`)
+            await this.reply(`btc插件已经是最新版本\n最后更新时间：${time}`)
         } else {
-            await this.reply(`BTC插件\n最后更新时间：${time}`)
+            await this.reply(`btc插件\n最后更新时间：${time}`)
             this.isUp = true
-            /** 获取BTC组件的更新日志 */
+            /** 获取btc-memz-plugin的更新日志 */
             let log = await this.getLog('btc-memz-plugin')
-            let line = log.split('\n\n').length
-            let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/memz2007/btc-memz-plugin/repository/stats/master'
-            log = await common.makeForwardMsg(this.e, [log, end], `${plugin}更新日志，共${line}条`)
             await this.reply(log)
         }
-
         logger.mark(`${this.e.logFnc} 最后更新时间：${time}`)
         return true
     }
-
+    /**
+     * 获取btc-memz-plugin的更新日志
+     * @param {string} plugin 插件名称
+     * @returns
+     */
     async getLog(plugin = '') {
         let cm = `cd ./plugins/${plugin}/ && git log  -20 --oneline --pretty=format:"%h||[%cd]  %s" --date=format:"%F %T"`
         let logAll
@@ -132,7 +115,12 @@ export class BtcUpdate extends plugin {
             if (str[1].includes('Merge branch')) continue
             log.push(str[1])
         }
-        return log.join('\n\n')
+        let line = log.length
+        log = log.join('\n\n')
+        if (log.length <= 0) return ''
+        let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/memz2007/btc-memz-plugin'
+        log = await common.makeForwardMsg(this.e, [log, end], `${plugin}更新日志，共${line}条`)
+        return log
     }
     /**
      * 获取上次提交的commitId
@@ -213,7 +201,6 @@ export class BtcUpdate extends plugin {
             })
         })
     }
-
     /**
      * 检查git是否安装
      * @returns
