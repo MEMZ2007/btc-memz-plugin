@@ -42,3 +42,4 @@ try {
     await this.reply('查询ICP备案信息时出现错误。');
   }
 }
+}
