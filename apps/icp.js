@@ -12,34 +12,33 @@ export class ICPCheck extends plugin {
 
       rule: [
         {
-          reg: '^#?ICP查询\s*(.+)',
+          reg: '^#?(icp|ICP)查询\s*(.+)',
           fnc: 'checkICP'
         }
       ]
     });
   }
 
-  async checkICP(e) {
-    const domain = e.match[1]; // 提取用户消息中的域名
-    const apiUrl = `https://api.uomg.com/api/icp?domain=${encodeURIComponent(domain)}`;
+async checkICP(e) {
+  const domain = e.msg.match(/#?(icp|ICP)查询\s*(.+)/)[1];
+  const apiUrl = `https://api.uomg.com/api/icp?domain=${encodeURIComponent(domain)}`;
 
-    try {
-      const response = await fetch(apiUrl);
-      if (response.ok) {
-        const data = await response.json();
-        if (data.code === '1') {
-          const icp = data.icp;
-          const replyMsg = `${domain}的ICP备案号是：${icp}`;
-          await this.reply(replyMsg);
-        } else {
-          await this.reply(`未找到与${domain}相关的ICP备案信息。`);
-        }
+  try {
+    const response = await fetch(apiUrl);
+    if (response.ok) {
+      const data = await response.json();
+      if (data && data.code === '1') {
+        const icp = data.icp;
+        const replyMsg = `${domain}的ICP备案号是：${icp}`;
+        await this.reply(replyMsg);
       } else {
-        await this.reply('查询ICP备案信息时出现错误。');
+        await this.reply(`未找到与${domain}相关的ICP备案信息。`);
       }
-    } catch (error) {
-      console.error(error);
+    } else {
       await this.reply('查询ICP备案信息时出现错误。');
     }
+  } catch (error) {
+    console.error(error);
+    await this.reply('查询ICP备案信息时出现错误。');
   }
 }
