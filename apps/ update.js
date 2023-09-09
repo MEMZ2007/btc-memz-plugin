@@ -133,7 +133,7 @@ export class BtcUpdate extends plugin {
         log = log.join('\n\n')
         if (log.length <= 0) return ''
         let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/memz2007/btc-memz-plugin/repository/stats/master'
-        log = await common.makeForwardMsg(this.e, [log, end], `${plugin}更新日志，共${line}条`)
+        log = await common.makeForwardMsg(this.e, [log.toString(), end], `${plugin}更新日志，共${line}条`)
         return log
     }
     /**
