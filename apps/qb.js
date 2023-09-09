@@ -2,9 +2,27 @@ import plugin from '../../../lib/plugins/plugin.js';
 import puppeteer from 'puppeteer';
 import { segment } from 'oicq';
 
+let browser;
+
 export default class ImgPlugin extends plugin {
 
+  constructor() {
+    super({
+      rule: [
+        {
+          reg: '^#全部截图$',
+          fnc: 'run'
+        }
+      ]
+    });
+  }
+
   async run(e) {
+
+    if (!browser) {
+      browser = await puppeteer.launch();
+    }
+
     const urls = [
       'https://www.coincarp.com/zh/currencies/dynex',
       'https://www.coincarp.com/zh/currencies/kaspa/',
@@ -23,39 +41,37 @@ export default class ImgPlugin extends plugin {
       'https://www.coincarp.com/zh/currencies/pepe/'
     ];
 
-    let contents = [];
-
-    const browser = await puppeteer.launch();
-
-    for(let url of urls) {
+    const imgContents = []; 
+    
+    for (let url of urls) {
       const page = await browser.newPage();
       await page.goto(url);
-      await page.setViewport({ width: 300, height: 200}); 
+      await page.setViewport({ width: 300, height: 200});
       const imgBuffer = await page.screenshot();
-      contents.push({
+      imgContents.push({
         type: 'image',
         data: {
           file: imgBuffer
         }
       });
+      await page.close(); 
     }
-
-    await browser.close();
     
-    const forward = segment.forward(contents);
+    const forwardMsg = segment.forward(imgContents);
 
-    await e.reply([
-      {
-        type: 'text',
-        data: {
-          text: '全部查询结果:'
-        }
-      },
-      {
-        type: 'forward',
-        data: forward  
+    await e.reply([{
+      type: 'text',
+      data: {
+        text: '全部截图结果:'  
       }
-    ]);
+    }, {
+      type: 'forward',
+      data: forwardMsg 
+    }]);
+
+    if(browser) {
+      await browser.close();
+    }
 
   }
 
