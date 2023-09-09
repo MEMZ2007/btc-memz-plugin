@@ -1,6 +1,6 @@
-import plugin from '../../../lib/plugins/plugin.js';
-import puppeteer from 'puppeteer';
 import { segment } from 'oicq';
+import plugin from '../../../lib/plugin.js';
+import puppeteer from 'puppeteer';
 
 let browser;
 
@@ -8,21 +8,22 @@ export default class ImgPlugin extends plugin {
 
   constructor() {
     super({
-      rule: [
-        {
-          reg: '^#全部截图$',
-          fnc: 'run'
-        }
-      ]
+      name: 'ImgPlugin',
+      dsc: '网页截图插件',
+      event: 'message',
+      priority: 5000,
+
+      rule: [{
+        reg: '^#全部截图$',
+        fnc: 'run'  
+      }]
     });
   }
 
   async run(e) {
-
-    if (!browser) {
-      browser = await puppeteer.launch();
-    }
-
+    browser = await puppeteer.launch({
+      headless: 'new' 
+    });
     const urls = [
       'https://www.coincarp.com/zh/currencies/dynex',
       'https://www.coincarp.com/zh/currencies/kaspa/',
@@ -41,37 +42,38 @@ export default class ImgPlugin extends plugin {
       'https://www.coincarp.com/zh/currencies/pepe/'
     ];
 
-    const imgContents = []; 
-    
+
+    const contents = [];
+
     for (let url of urls) {
       const page = await browser.newPage();
       await page.goto(url);
-      await page.setViewport({ width: 300, height: 200});
+      await page.setViewport({width: 800, height: 600});
       const imgBuffer = await page.screenshot();
-      imgContents.push({
+
+      contents.push({
         type: 'image',
         data: {
           file: imgBuffer
-        }
+        }  
       });
-      await page.close(); 
+
+      await page.close();
     }
     
-    const forwardMsg = segment.forward(imgContents);
+    const forwardMsg = segment.forward(contents);
 
     await e.reply([{
       type: 'text',
       data: {
-        text: '全部截图结果:'  
+        text: '全部截图结果:'
       }
     }, {
       type: 'forward',
-      data: forwardMsg 
+      data: forwardMsg
     }]);
 
-    if(browser) {
-      await browser.close();
-    }
+    await browser.close();
 
   }
 
