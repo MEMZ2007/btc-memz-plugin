@@ -49,7 +49,7 @@ export class WeatherQuery extends plugin {
       await this.reply(result);
     } catch (err) {
       logger.error(err);
-      await this.reply('查询天气失败');
+      await this.reply('查询失败');
     }
   }
 }
