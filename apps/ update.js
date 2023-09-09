@@ -104,6 +104,9 @@ export class BtcUpdate extends plugin {
             this.isUp = true
             /** 获取BTC组件的更新日志 */
             let log = await this.getLog('btc-memz-plugin')
+            let line = log.split('\n\n').length
+            let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/memz2007/btc-memz-plugin/repository/stats/master'
+            log = await common.makeForwardMsg(this.e, `${plugin}更新日志，共${line}条`, log, end)
             await this.reply(log)
         }
 
@@ -129,12 +132,7 @@ export class BtcUpdate extends plugin {
             if (str[1].includes('Merge branch')) continue
             log.push(str[1])
         }
-        let line = log.length
-        log = log.join('\n\n')
-        if (log.length <= 0) return ''
-        let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/memz2007/btc-memz-plugin/repository/stats/master'
-        log = await common.makeForwardMsg(this.e, [log.toString(), end], `${plugin}更新日志，共${line}条`)
-        return log
+        return log.join('\n\n')
     }
     /**
      * 获取上次提交的commitId
