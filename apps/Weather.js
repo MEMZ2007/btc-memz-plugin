@@ -10,7 +10,7 @@ export class WeatherQuery extends plugin {
       priority: 50,
       rule: [
         {
-          reg: '^#?(weather|天气)(.*)',
+          reg: '^#?(weather|天气|天气查询)(.*)',
           fnc: 'queryWeather'
         }
       ]
