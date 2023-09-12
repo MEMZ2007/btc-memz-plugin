@@ -1,10 +1,10 @@
 import plugin from '../../../../lib/plugins/plugin.js';
 import fetch from 'node-fetch';
 
-export class DomainInfo extends plugin {
+export class DomainNameInclusion extends plugin {
   constructor() {
     super({
-      name: 'DomainInfo',
+      name: 'DomainNameInclusion',
       dsc: '域名SEO收录与反链信息查询',
       event: 'message',
       priority: 10,

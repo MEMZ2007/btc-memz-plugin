@@ -1,7 +1,7 @@
 import plugin from '../../../../lib/plugins/plugin.js';
 import fetch from 'node-fetch';
 
-export class DomainInfo extends plugin {
+export class DomainName extends plugin {
   constructor() {
     super({
       name: '域名信息查询',
