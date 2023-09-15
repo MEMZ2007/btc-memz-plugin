@@ -69,6 +69,18 @@ export const helpList = [
 }, 
   
 
+  { 
+    group: '游戏相关', 
+    list: [{ 
+    icon: 34, 
+    title: '#王者攻略+英雄名', 
+    desc: '王者荣耀英雄攻略' 
+}]
+}, 
+
+
+
+
 
 
 
