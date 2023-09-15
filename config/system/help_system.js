@@ -82,6 +82,10 @@ export const helpList = [
     icon: 42,
     title: '#域名+网址',
     desc: '域名信息查询'
+  }, {
+    icon: 22,
+    title: '#收录查询+网址',
+    desc: '域名收录信息查询'
   }]
 }, 
 
