@@ -10,7 +10,7 @@ export class DomainNameInclusion extends plugin {
       priority: 10,
       rule: [
         {
-          reg: '^#?(查询域名|域名查询)\s*(.+)',
+          reg: '^#?(域名收录查询|收录查询|反链信息查询|反链查询)\s*(.+)',
           fnc: 'checkDomainInfo'
         }
       ]
