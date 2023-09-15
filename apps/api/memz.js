@@ -55,6 +55,9 @@ export class WebPreview extends plugin {
     const response = await fetch(url);
     const buffer = await response.buffer();
     await this.reply(segment.image(buffer));
-  }
+  } catch (error) {
+      console.error('获取图片失败:', error);
+      await this.reply('获取图片失败，请稍后重试。');
+    }
 
 }
