@@ -79,7 +79,14 @@ export const helpList = [
 }, 
 
 
-
+  { 
+    group: '文案相关', 
+    list: [{ 
+    icon: 34, 
+    title: '#骚话文案', 
+    desc: '获取骚话文案' 
+}]
+}, 
 
 
 
