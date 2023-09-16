@@ -2,7 +2,7 @@ import plugin from '../../../../lib/plugins/plugin.js';
 import { segment } from 'oicq';
 import fetch from 'node-fetch';
 
-export class WebPreview extends plugin {
+export class WebPrmeview extends plugin {
 
   constructor() {
     super({
