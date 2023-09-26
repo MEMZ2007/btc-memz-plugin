@@ -12,13 +12,13 @@ export class BtcPlugin extends plugin {
       rule: [
         {
           reg: /^#btc查询$/,
-          fnc: 'btc查询'
+          fnc: 'btc'
         }
       ]
     });
   }
 
-  async fetchBtcData() {
+  async btc() {
     const url = 'https://api.coincap.io/v2/assets?limit=20';
     
     try {
