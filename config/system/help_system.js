@@ -30,6 +30,10 @@ export const helpList = [
     icon: 37,
     title: '#币种列表',
     desc: '查看可供查询的币种列表'
+  }, {
+    icon: 21,
+    title: '#btc查询',
+    desc: '查询btc等币种行情'
   }]
   }, 
   
