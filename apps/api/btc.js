@@ -11,7 +11,7 @@ export class BtcPlugin extends plugin {
       priority: 50,
       rule: [
         {
-          reg: /^#btc查询$/,
+          reg: /^#?btc查询$/,
           fnc: 'btc'
         }
       ]
