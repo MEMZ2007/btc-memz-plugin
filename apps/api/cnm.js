@@ -1,30 +1,40 @@
 import plugin from '../../../../lib/plugins/plugin.js';
 import fetch from 'node-fetch';
 
-export class cnm extends plugin {
+export class RidiculePlugin extends plugin {
+
   constructor() {
     super({
-      name: 'btc-cnm',
-      dsc: 'btc-cnm',
+      name: 'btccnm',
+      dsc: '获取cnm语录',
       event: 'message',
       priority: 5000,
       rule: [
         {
-          reg: '^#?(骂我|cnm|wcnm|nmsl)',
-          fnc: 'cnm',
-        },
-      ],
+          reg: '^#?爆笑语录$',
+          fnc: 'btccnm',
+        }
+      ]
     });
   }
 
-  async cnm(e) {
+  async btccnm(e) {
     try {
-      const response = await fetch('http://api.wxsszs.cn/api/Ridicule.php?msg=5');
-      const data = await response.get();
-      await this.reply(data.cnm, true, { recallMsg: 30 });
+      const url = 'http://api.wxsszs.cn/api/Ridicule.php?msg=5';
+      
+      const response = await fetch(url);
+      const data = await response.json();
+      
+      if (response.ok) {
+        await this.reply(data.content, true, {recallMsg: 30});
+      } else {
+        throw new Error('接口请求失败');
+      }
+      
     } catch (error) {
-      console.error('[btc-cnm] 接口请求失败:', error);
-      await this.reply('btc-cnm接口请求失败，请稍后重试');
+      console.error('cnm接口请求失败:', error);
+      await this.reply('cnm接口请求失败,请稍后重试');
     }
   }
+
 }
