@@ -21,8 +21,7 @@ export class KoutuFenfang extends plugin {
   async btccnm(e) {
     try {
       
-      
-      const url = 'http://api.wxsszs.cn/api/Ridicule.php?';
+      const url = 'http://api.wxsszs.cn/api/Ridicule.php?=3';
       
       const response = await fetch(url);
       const data = await response.text();
