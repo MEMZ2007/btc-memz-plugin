@@ -1,12 +1,12 @@
-import plugin from '../../../../lib/plugins/plugin.js';
+import plugin from '../../../../lib/plugins/plugin.js'; 
 import fetch from 'node-fetch';
 
-export class RidiculePlugin extends plugin {
+export class KoutuFenfang extends plugin {
 
   constructor() {
     super({
-      name: 'btccnm',
-      dsc: '获取cnm语录',
+      name: '口吐芬芳',
+      dsc: '获取随机口吐芬芳',
       event: 'message',
       priority: 5000,
       rule: [
@@ -18,25 +18,25 @@ export class RidiculePlugin extends plugin {
     });
   }
 
-  async btccnmm(e) {
-  try {
-    const url = 'http://api.wxsszs.cn/api/Ridicule.php?msg=5';
-    
-    const params = {msg: 5}; 
-    const response = await fetch(url + '?' + new URLSearchParams(params));
-    
-    const data = await response.json();
-    
-    if (response.ok) {
-      await this.reply(data.content, true, {recallMsg: 30});
-    } else {
-      throw new Error('接口请求失败');
+  async btccnm(e) {
+
+    try {
+      const params = new URLSearchParams({
+        msg: Math.random() * 5 + 1
+      });
+      
+      const url = 'http://api.wxsszs.cn/api/Ridicule.php?' + params;
+      
+      const response = await fetch(url);
+      const data = await response.text();
+
+      await this.reply(data);
+
+    } catch(err) {
+      console.error(err);
+      await this.reply('出错了,请重试!');
     }
-    
-  } catch (error) {
-      console.error('cnm接口请求失败:', error);
-      await this.reply('cnm接口请求失败,请稍后重试');
-    }
+
   }
 
 }
