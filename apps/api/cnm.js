@@ -19,13 +19,10 @@ export class KoutuFenfang extends plugin {
   }
 
   async btccnm(e) {
-
     try {
-      const params = new URLSearchParams({
-        msg: Math.random() * 5 + 1
-      });
       
-      const url = 'http://api.wxsszs.cn/api/Ridicule.php?' + params;
+      
+      const url = 'http://api.wxsszs.cn/api/Ridicule.php?';
       
       const response = await fetch(url);
       const data = await response.text();
