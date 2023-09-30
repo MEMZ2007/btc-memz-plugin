@@ -11,7 +11,7 @@ export class KoutuFenfang extends plugin {
       priority: 5000,
       rule: [
         {
-          reg: '^#?爆笑语录$',
+          reg: '^#?(爆笑|枫叶)语录$',
           fnc: 'btccnm',
         }
       ]
@@ -21,7 +21,7 @@ export class KoutuFenfang extends plugin {
   async btccnm(e) {
     try {
       
-      const url = 'http://api.wxsszs.cn/api/Ridicule.php?=3';
+      const url = 'https://api.wxsszs.cn/api/Ridicule.php?msg=5';
       
       const response = await fetch(url);
       const data = await response.text();
