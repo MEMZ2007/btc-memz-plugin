@@ -41,7 +41,7 @@ async zhongduan(e) {
     }
     
   console.log("用户命令：", e.msg);
-  //执行的逻辑功能
+
   let msg = e.msg.replace("#cmd","");
   var exec = require('child_process').exec;
   var ls = exec('cd ../ && '+msg, function (error, stdout, stderr){
@@ -52,6 +52,6 @@ async zhongduan(e) {
     }
   })
 
-  return true; //返回true 阻挡消息不再往下
+  return true;
   }
 }
