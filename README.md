@@ -26,6 +26,8 @@ git clone --depth=1 https://github.com/memz2007/btc-memz-plugin ./plugins/btc-me
 
  MEMZ签名服务器地址
 
- 接口一 http://43.143.247.43:11452/sign?key=114514
+ 接口一《8.9.70》http://121.43.35.182:8000/sign?key=114514
 
- 接口二 http://43.143.247.43:11452/sign?key=114514
+ 接口二《8.9.68》http://121.43.35.182:8001/sign?key=114514
+
+ 接口三《8.9.63》http://121.43.35.182:8002/sign?key=114514
