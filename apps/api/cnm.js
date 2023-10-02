@@ -30,7 +30,7 @@ export class KoutuFenfang extends plugin {
       const response = await fetch(url);
       const data = await response.text();
 
-      await this.reply(data);
+      await this.reply(data + "🤣👉");
 
     } catch(err) {
       console.error(err);
@@ -46,7 +46,7 @@ export class KoutuFenfang extends plugin {
       const response = await fetch(url);
       const data = await response.text();
 
-      await this.reply(data);
+      await this.reply(data + "🤣👉");
 
     } catch(err) {
       console.error(err);
