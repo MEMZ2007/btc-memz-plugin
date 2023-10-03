@@ -22,20 +22,10 @@ export class TyphoonScreenshot extends plugin {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
       const url = 'http://typhoon.nmc.cn/web.html';
-
-      // 打开指定网页
       await page.goto(url);
-
-      // 等待 3 秒钟
       await page.waitForTimeout(3000);
-
-      // 截取网页截图
       const imgBuffer = await page.screenshot();
-
-      // 关闭浏览器
       await browser.close();
-
-      // 发送截图
       await this.reply(segment.image(imgBuffer));
     } catch (error) {
       console.error('获取台风截图失败:', error);

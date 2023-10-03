@@ -24,8 +24,11 @@ git clone --depth=1 https://github.com/memz2007/btc-memz-plugin ./plugins/btc-me
 ### 其他
  交流群[点击加群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5HdR6UtrBmBrRGOyBYseWYVYx29ZEhxv&authKey=J%2Be5%2FDn%2BUF7lGKhgPa4ybyNFKx0ZMRBlnQuN7LldmhGT0ly%2FEgxiDIl%2BcRbmgOwX&noverify=0&group_code=235589956)
 
- MEMZ签名服务器地址
+ MEMZ签名服务器地址  **_《注意：第一次启动会有点慢不要着急》
+_**  
+ 
+ 接口一《8.9.70》http://121.43.35.182:8000/sign?key=114514
 
- 接口一 http://43.143.247.43:11452/sign?key=114514
+ 接口二《8.9.68》http://121.43.35.182:8001/sign?key=114514
 
- 接口二 http://43.143.247.43:11452/sign?key=114514
+ 接口三《8.9.63》http://121.43.35.182:8002/sign?key=114514
