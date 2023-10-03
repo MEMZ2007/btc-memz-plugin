@@ -20,7 +20,10 @@ export class ScreenshotOfWebPages extends plugin {
 
   async screenshot(e) {
     await this.reply("正在截图中...")
-    const url = e.msg.replace(/#网页截图(http:\/\/|https:\/\/)/g,'').trim();
+    let url = e.msg.replace(/#网页截图(http:\/\/|https:\/\/)/g,'').trim();
+    if (url.replace(/(http:\/\/|https:\/\/)/g, '').trim() == url) {
+      url = "http://" + url
+    }
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
