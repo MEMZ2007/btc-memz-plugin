@@ -2,7 +2,7 @@ import plugin from '../../../lib/plugins/plugin.js';
 import { segment } from 'oicq';
 import puppeteer from 'puppeteer';
 
-export class wyjq extends plugin {
+export class ScreenshotOfWebPages extends plugin {
   constructor() {
     super({
       name: '网页截图',
@@ -11,14 +11,14 @@ export class wyjq extends plugin {
       priority: 100,
       rule: [
         {
-          reg: `^#网页截图(.*)$`,
-          fnc: 'preview'
+          reg: `^#?网页截图(.*)$`,
+          fnc: 'screenshot'
         },
       ]
     });
   }
 
-  async preview(e) {
+  async screenshot(e) {
     await this.reply("正在截图中...")
     const url = e.msg.replace(/#网页截图/g,'').trim();
     const browser = await puppeteer.launch();
