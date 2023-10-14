@@ -27,8 +27,17 @@ git clone --depth=1 https://github.com/memz2007/btc-memz-plugin ./plugins/btc-me
  MEMZ签名服务器地址  **_《注意：第一次启动会有点慢不要着急》
 _**  
  
- 接口一《8.9.70》http://121.43.35.182:8000/sign?key=114514
-
- 接口二《8.9.68》http://121.43.35.182:8001/sign?key=114514
-
- 接口三《8.9.63》http://121.43.35.182:8002/sign?key=114514
+ 国内旧接口
+《8.9.80》接口一 http://121.43.35.182:8005/sign?key=114514
+《8.9.73》接口一 http://121.43.35.182:8003/sign?key=114514
+《8.9.71》接口一 http://121.43.35.182:8004/sign?key=114514
+《8.9.70》接口二 http://121.43.35.182:8000/sign?key=114514
+《8.9.68》接口三 http://121.43.35.182:8001/sign?key=114514
+《8.9.63》接口四 http://121.43.35.182:8002/sign?key=114514
+ 国外新接口
+《8.9.80》接口一 http://memz.cc:8005/sign?key=MEMZ
+《8.9.73》接口一 http://memz.cc:8004/sign?key=MEMZ
+《8.9.71》接口一 http://memz.cc:8003/sign?key=MEMZ
+《8.9.70》接口二 http://memz.cc:8002/sign?key=MEMZ
+《8.9.68》接口三 http://memz.cc:8001/sign?key=MEMZ
+《8.9.63》接口四 http://memz.cc:8000/sign?key=MEMZ
