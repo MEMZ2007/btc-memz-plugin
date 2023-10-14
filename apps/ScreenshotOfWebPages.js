@@ -27,7 +27,7 @@ export class ScreenshotOfWebPages extends plugin {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
-    await page.setViewport({ width: 1000, height: 800 });
+    await page.setViewport({ width: 1920, height: 1080 });
     const imgBuffer = await page.screenshot();
     await browser.close();
     await this.reply(segment.image(imgBuffer));
