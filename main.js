@@ -1,15 +1,24 @@
-import { createApps } from 'alemonjs'
-import * as apps from './index.js'
-import { render } from './adapter/render.js'
-const xiaoyao = YUNZAIV2(apps['rule'], apps)
-const app = createApps(import.meta.url)
-app.setMessage(async e => {
-  await runtime.init(e)
-  e.sender = {}
-  e.sender.card = e.user_name
-  e.checkAuth = val => val
-  return e
+import { createApps, getAppName } from 'alemonjs'
+const AppName = getAppName(import.meta.url)
+import fs from 'node:fs'
+const files = fs
+  .readdirSync(`./plugins/${AppName}/apps`)
+  .filter(file => file.endsWith('.js'))
+let ret = []
+files.forEach(file => {
+  ret.push(import(`./apps/${file}`))
 })
-app.setArg(() => [{ render }])
-app.component({ xiaoyao })
+ret = await Promise.allSettled(ret)
+const apps = {}
+for (const i in files) {
+  const name = files[i].replace('.js', '')
+  if (ret[i].status != 'fulfilled') {
+    console.error(`载入插件错误：${name}`)
+    console.error(ret[i].reason)
+    continue
+  }
+  apps[name] = ret[i].value[Object.keys(ret[i].value)[0]]
+}
+const app = createApps(import.meta.url)
+app.component(apps)
 app.mount()
