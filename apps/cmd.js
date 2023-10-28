@@ -1,5 +1,5 @@
 import { segment } from "oicq";
-import plugin from '../../../../lib/plugins/plugin.js';
+import plugin from '../../../lib/plugins/plugin.js';
 import fetch from "node-fetch";
 import {createRequire} from "module";
 const require = createRequire(import.meta.url);
