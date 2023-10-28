@@ -66,3 +66,5 @@ _**
   </a><a href="https://gitee.com/fenglinit" class="js-popover-card" data-username="fenglinit">
   <img class="ui avatar image" alt="枫林" src="https://foruda.gitee.com/avatar/1692966261783724602/11918480_lin-zhi-xuan_1692966261.png!avatar60">
   </a></div>
+
+[![Star History Chart](https://api.star-history.com/svg?repos=memz2007/btc-memz-plugin&type=Date)]
