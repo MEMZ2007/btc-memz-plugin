@@ -55,9 +55,17 @@ _**
 
 《8.9.63》接口四 http://memz.cc:8000/sign?key=MEMZ
 
+## 贡献者
 
-<div align="center">
+感谢以下贡献者对本项目做出的贡献
 
-[![Star Trend](https://api.star-history.com/svg?repos=memz2007/btc-memz-plugin&type=Timeline)](https://seladb.github.io/StarTrack-js/#/preload?r=memz2007,btc-memz-plugin)
-
-</div>
+<div class="content" id="contributor-list"><a href="/maple-leaf-sweeping" class="js-popover-card" data-username="maple-leaf-sweeping">
+  <img class="ui avatar image" alt="叶殇" src="https://foruda.gitee.com/avatar/1692275580215714017/12251183_maple-leaf-sweeping_1692275580.png!avatar60">
+  
+</a><a href="/memz2007" class="js-popover-card" data-username="memz2007">
+  <img class="ui avatar image" alt="一只可爱的MEMZ" src="https://foruda.gitee.com/avatar/1689260712231004365/8609035_alitax_1689260712.png!avatar60">
+  
+</a><a href="/fenglinit" class="js-popover-card" data-username="fenglinit">
+  <img class="ui avatar image" alt="枫林" src="https://foruda.gitee.com/avatar/1692966261783724602/11918480_lin-zhi-xuan_1692966261.png!avatar60">
+  
+</a></div>
