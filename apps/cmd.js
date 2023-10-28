@@ -27,11 +27,6 @@ export class kelitaocan extends plugin {
   }
 
 async cmd_help(e) {
-  if (!e.isMaster) {
-    await this.reply("凡人，休得僭越！");
-    return true;
-    
-  } 
   await this.reply(`cmd帮助：\n呼出帮助：\n#cmd\n单条命令执行：\n#cmd [命令]\n多条命令执行：\n#cmd [命令1] && [命令2]  && [命令3] && ......\n\n注意：\n1.每次执行#cmd命令后都会回到/root\n2.该插件具有一定破坏性，所以仅bot的主人可用\n3.部分变量无法使用甚至报错，这是正常的`);
   return true;
 }
