@@ -54,3 +54,10 @@ _**
 《8.9.68》接口三 http://memz.cc:8001/sign?key=MEMZ
 
 《8.9.63》接口四 http://memz.cc:8000/sign?key=MEMZ
+
+
+<div align="center">
+
+[![Star Trend](https://api.star-history.com/svg?repos=memz2007/btc-memz-plugin&type=Timeline)](https://seladb.github.io/StarTrack-js/#/preload?r=memz2007,btc-memz-plugin)
+
+</div>
