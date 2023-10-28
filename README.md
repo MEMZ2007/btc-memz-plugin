@@ -59,13 +59,10 @@ _**
 
 感谢以下贡献者对本项目做出的贡献
 
-<div class="content" id="contributor-list"><a href="/maple-leaf-sweeping" class="js-popover-card" data-username="maple-leaf-sweeping">
+<div class="content" id="contributor-list"><a href="https://gitee.com/maple-leaf-sweeping" class="js-popover-card" data-username="maple-leaf-sweeping">
   <img class="ui avatar image" alt="叶殇" src="https://foruda.gitee.com/avatar/1692275580215714017/12251183_maple-leaf-sweeping_1692275580.png!avatar60">
-  
-</a><a href="/memz2007" class="js-popover-card" data-username="memz2007">
+  </a><a href="https://gitee.com/memz2007" class="js-popover-card" data-username="memz2007">
   <img class="ui avatar image" alt="一只可爱的MEMZ" src="https://foruda.gitee.com/avatar/1689260712231004365/8609035_alitax_1689260712.png!avatar60">
-  
-</a><a href="/fenglinit" class="js-popover-card" data-username="fenglinit">
+  </a><a href="https://gitee.com/fenglinit" class="js-popover-card" data-username="fenglinit">
   <img class="ui avatar image" alt="枫林" src="https://foruda.gitee.com/avatar/1692966261783724602/11918480_lin-zhi-xuan_1692966261.png!avatar60">
-  
-</a></div>
+  </a></div>
