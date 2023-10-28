@@ -2,6 +2,13 @@
   version: 1.1.1,
   data:
     [ 
-      删除<span class="cmd">失效</span>功能, 
+      优化<span class="cmd">帮助</span>代码, 
+    ],
+}
+- {
+  version: 1.0.0,
+  data:
+    [ 
+      添加<span class="cmd">功能</span>, 
     ],
 }

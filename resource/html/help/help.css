@@ -33,7 +33,7 @@
       font-family: 'tttgbnumber';
       padding: 10px 20px;
       position: relative;
-      color: rgb(12, 236, 60);
+      color: rgb(23, 25, 135);
       box-shadow: 0 5px 10px 0 rgb(0 0 0 / 50%);
   }
   
@@ -103,7 +103,7 @@
   
   .data_box .lable {
     font-size: 14px;
-    color: #10fc57;
+    color: #df11bd;
     line-height: 1;
     margin-top: 3px;
   }
@@ -153,6 +153,6 @@
   .logo {
       text-align: center;
       font-size: 20px;
-      color: rgb(18, 11, 228);
+      color: #0ff;
       font-family: 'tttgbnumber';
   }
