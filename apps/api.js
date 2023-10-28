@@ -11,8 +11,8 @@ export class BtcPlugin extends plugin {
       priority: 50,
       rule: [
         {
-            reg: /^#?btc查询$/,
-            fnc: 'btc'
+            reg: '^#?虚拟货币最新信息$',
+            fnc: 'btchq'
         },
         {
             reg: '^#?爆笑语录$',
@@ -58,7 +58,7 @@ export class BtcPlugin extends plugin {
     });
   }
 
-  async btc() {
+  async btchq() {
     const url = 'https://api.coincap.io/v2/assets?limit=20';
     
     try {

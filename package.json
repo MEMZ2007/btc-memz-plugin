@@ -1,6 +1,6 @@
 {
     "name": "btc-memz-plugin",
-    "version": "V 1.0.1",
+    "version": "V 1.4.0",
     "author": "MEMZ+枫叶+枫林",
     "type": "module",
     "dependencies": {
