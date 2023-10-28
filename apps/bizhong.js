@@ -32,6 +32,10 @@ export class WebPreview extends plugin {
           reg: `^#?(dnx|kas|rvn|btc|chia|clore|doge|ergo|eth|nexa|neoxa|rxd|xch|meme|pepe)$`,
           fnc: 'preview'
         },
+        {
+          reg: `^#?(b|B|币)种列表`,
+          fnc: 'sendCoinList'
+        },
       ]
     });
   }
@@ -46,5 +50,15 @@ export class WebPreview extends plugin {
     const imgBuffer = await page.screenshot();
     await browser.close();
     await this.reply(segment.image(imgBuffer));
+  }
+
+  async sendCoinList(e) {
+    const coinList = [
+      'dnx', 'kas', 'rvn', 'btc', 'chia', 'clore', 'doge', 'ergo', 'eth', 'nexa', 'neoxa', 'rxd', 'xch', 'meme', 'pepe'
+    ];
+
+    const replyMessage = '支持的币种列表：\n' + coinList.join('\n');
+
+    await this.reply(replyMessage);
   }
 }

@@ -20,28 +20,29 @@ export class kelitaocan extends plugin {
         },
         {
           reg: '^#cmd',
-          fnc: 'help'
+          fnc: 'cmd_help'
         }
           ],
     })
   }
 
-async help(e) {
-  if (e.isMaster) {
-    await this.reply(`cmd帮助：\n呼出帮助：\n#cmd\n单条命令执行：\n#cmd [命令]\n多条命令执行：\n#cmd [命令1] && [命令2]  && [命令3] && ......\n\n注意：\n1.每次执行#cmd命令后都会回到/root\n2.该插件具有一定破坏性，所以仅bot的主人可用\n3.部分变量无法使用甚至报错，这是正常的`);
-    } else {
+async cmd_help(e) {
+  if (!e.isMaster) {
     await this.reply("凡人，休得僭越！");
-    return;
-    }
+    return true;
+    
+  } 
+  await this.reply(`cmd帮助：\n呼出帮助：\n#cmd\n单条命令执行：\n#cmd [命令]\n多条命令执行：\n#cmd [命令1] && [命令2]  && [命令3] && ......\n\n注意：\n1.每次执行#cmd命令后都会回到/root\n2.该插件具有一定破坏性，所以仅bot的主人可用\n3.部分变量无法使用甚至报错，这是正常的`);
+  return true;
 }
+
 async zhongduan(e) {
   if (!e.isMaster) {
      await this.reply("凡人，休得僭越！");
     return;
-    }
-    
+  }
+ 
   console.log("用户命令：", e.msg);
-
   let msg = e.msg.replace("#cmd","");
   var exec = require('child_process').exec;
   var ls = exec('cd ../ && '+msg, function (error, stdout, stderr){
