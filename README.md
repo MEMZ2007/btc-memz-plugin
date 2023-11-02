@@ -67,4 +67,10 @@ _**
   <img class="ui avatar image" alt="枫林" src="https://foruda.gitee.com/avatar/1692966261783724602/11918480_lin-zhi-xuan_1692966261.png!avatar60">
   </a></div>
 
+# 免责声明
+
+1. 功能仅限内部交流与小范围使用，严禁将btc-memz-plugin用于任何商业用途或盈利
+2. 图片与其他素材均来自于网络，仅供交流学习使用，如有侵权请联系，会立即删除
+
+
 [![Star History Chart](https://api.star-history.com/svg?repos=memz2007/btc-memz-plugin&type=Date)](https://star-history.com/memz2007/btc-memz-plugin&Date)
