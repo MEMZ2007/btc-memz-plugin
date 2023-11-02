@@ -53,7 +53,11 @@ export class BtcPlugin extends plugin {
           {
             reg: /^#?(王者攻略|英雄攻略)\s*(.+)/,
             fnc: 'getHeroStrategy',
-          },
+          },        
+          {
+            reg: '^#?名言警句录$',
+            fnc: 'myjj',
+        },
       ]
     });
   }
@@ -302,7 +306,22 @@ export class BtcPlugin extends plugin {
       await this.reply('获取英雄攻略信息时出现错误。');
     }
   }
+  async myjj(e) {
+    try {
+      
+      const url = 'https://api.xygeng.cn/one';
+      
+      const response = await fetch(url);
+      const data = await response.text();
 
+      await this.reply(data);
+
+    } catch(err) {
+      console.error(err);
+      await this.reply('出错了,请重试!');
+    }
+
+  }
 
 
 
