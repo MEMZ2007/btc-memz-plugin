@@ -1,0 +1,62 @@
+- group: 币种功能
+  list:
+    - icon: icon_28
+      title: "#币种列表"
+      desc: '查看币种列表'
+    - icon: icon_28
+      title: "#虚拟货币最新信息"
+      desc: '查询虚拟货币TOP20行情'
+- group: 游戏相关
+  list:
+    - icon: icon_29
+      title: "#王者攻略+英雄名"
+      desc: '王者荣耀英雄攻略'
+- group: 文案相关
+  list:
+    - icon: icon_35
+      title: "#骚话文案"
+      desc: '获取骚话文案'
+- group: 站长工具
+  list:
+    - icon: icon_6
+      title: "#ping+网址"
+      desc: 'ping网站测速'  
+    - icon: icon_5
+      title: "#域名+网址"
+      desc: '域名信息查询'  
+    - icon: icon_7
+      title: "#收录查询+网址"
+      desc: '域名收录信息查询'
+- group: 其他
+  list:
+    - icon: icon_6
+      title: "#台风"
+      desc: '查询西太平洋台风位置'  
+    - icon: icon_5
+      title: "#降水"
+      desc: '获取降水数据截图'  
+    - icon: icon_7
+      title: "#随机图片/白子/白上吹雪"
+      desc: '获取api图片' 
+    - icon: icon_6
+      title: "#骚扰查询+手机号"
+      desc: '骚扰电话查询'  
+    - icon: icon_5
+      title: "#天气+地点"
+      desc: '各地天气查询'  
+    - icon: icon_7
+      title: "#开源中国"
+      desc: '获取开源中国的最新信息'
+- group: 插件设置
+  auth: 'master'
+  list:
+    - icon: icon_36
+      title: "#btc(强制)更新"
+      desc: '(强制)更新BTC插件'
+    - icon: icon_37
+      title: "#cmd"
+      desc: '执行一些简单的命令'
+      
+
+
+

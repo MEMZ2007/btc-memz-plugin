@@ -2,6 +2,7 @@ import plugin from '../../../lib/plugins/plugin.js'
 import { createRequire } from 'module'
 import _ from 'lodash'
 import common from "../../../lib/common/common.js"
+import { Restart } from '../../other/restart.js'
 
 const require = createRequire(import.meta.url)
 const { exec, execSync } = require('child_process')
@@ -30,49 +31,6 @@ export class Update extends plugin {
      * rule - 更新btc-memz-plugin插件
      * @returns
      */
-
-    async restart () {
-        await this.e.reply('开始执行重启，请稍等...')
-        logger.mark(`${this.e.logFnc} 开始执行重启，请稍等...`)
-    
-        let data = JSON.stringify({
-          isGroup: !!this.e.isGroup,
-          id: this.e.isGroup ? this.e.group_id : this.e.user_id,
-          time: new Date().getTime()
-        })
-    
-        let npm = await this.checkPnpm()
-    
-        try {
-          await redis.set(this.key, data, { EX: 120 })
-          let cm = `${npm} start`
-          if (process.argv[1].includes('pm2')) {
-            cm = `${npm} run restart`
-          } else {
-            await this.e.reply('当前为前台运行，重启将转为后台...')
-          }
-    
-          exec(cm, { windowsHide: true }, (error, stdout, stderr) => {
-            if (error) {
-              redis.del(this.key)
-              this.e.reply(`操作失败！\n${error.stack}`)
-              logger.error(`重启失败\n${error.stack}`)
-            } else if (stdout) {
-              logger.mark('重启成功，运行已由前台转为后台')
-              logger.mark(`查看日志请用命令：${npm} run log`)
-              logger.mark(`停止后台运行命令：${npm} stop`)
-              process.exit()
-            }
-          })
-        } catch (error) {
-          redis.del(this.key)
-          let e = error.stack ?? error
-          this.e.reply(`操作失败！\n${e}`)
-        }
-    
-        return true
-      }
-
 
     async update() {
         if (!(this.e.isMaster || this.e.user_id == 197728340 || this.e.user_id == 2954439244 || this.e.user_id == 670979892)) { return true }
