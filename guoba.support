@@ -1,6 +1,7 @@
-import path from 'path'
+// 懒得适配
+
 import lodash from 'lodash'
-import {cfg} from "#guoba.platform";
+import cfg from "./model/index.js";
 
 // 支持锅巴
 export function supportGuoba() {
