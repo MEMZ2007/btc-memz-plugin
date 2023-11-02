@@ -14,10 +14,13 @@ export default class Help extends base {
     }
 
     async getData() {
+        // 获取帮助信息
         let helpData = config.getConfig('help')
 
+        // 获取当前组信息
         let groupCfg = cfg.getGroup(this.group_id)
 
+        // 如果当前组被禁用，则将帮助信息中的对应组设置为不可用
         if (groupCfg.disable && groupCfg.disable.length) {
             helpData.map((item) => {
                 if (groupCfg.disable.includes(item.group)) {
@@ -27,11 +30,14 @@ export default class Help extends base {
             })
         }
 
+        // 获取版本信息
         const versionData = config.getConfig('version')
 
+        // 获取版本号
         const version =
             (versionData && versionData.length && versionData[0].version) || '1.0.0'
 
+        // 返回帮助信息、版本号、保存id
         return {
             ...this.screenData,
             saveId: 'help',
