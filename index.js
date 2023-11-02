@@ -7,11 +7,23 @@ const apps = await appsOut({ AppsName: 'apps' }).then(req => {
 export { apps };
 
 // 不知道写啥，那就让插件的启动速度变慢吧(bushi)
-if (0) {
-  for (let i = 0; i < 10000; i++) {
+if (1) {
+  let a = 1;
+  for (let i = 0; i < 100; i++) {
     if (i) {
       if (i%5==0) {
         logger.info(logger.yellow("原神，启动！"))
+      }
+    }
+    for (let j = 0; j <10000; j++) {
+      if (j % 5==0) {
+        a += j*5;
+      }
+      if (j % 3==0) {
+        a += j*3;
+      }
+      if (j % 2==0) {
+        a += j*2;
       }
     }
   }
