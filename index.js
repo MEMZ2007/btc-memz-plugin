@@ -12,7 +12,7 @@ const apps = await appsOut({ AppsName: 'apps' }).then(req => {
           logger.info(logger.yellow("原神，启动！"));
         }
       }
-      for (let j = 0; j < 100000000; j++) {
+      for (let j = 0; j < 1000000; j++) {
         if (j % 5 == 0) {
           a += j * 5;
         }
