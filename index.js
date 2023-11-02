@@ -6,35 +6,39 @@ const apps = await appsOut({ AppsName: 'apps' }).then(req => {
 });
 export { apps };
 
-/* 
-for (let i = 0; i < 10000; i++) {
-  if (i) {
-    logger.info("原神，启动！")
+// 不知道写啥，那就让插件的启动速度变慢吧(bushi)
+if (0) {
+  for (let i = 0; i < 10000; i++) {
+    if (i) {
+      if (i%5==0) {
+        logger.info(logger.yellow("原神，启动！"))
+      }
+    }
   }
 }
-*/
 
-logger.info("                        _oo0oo_")
-logger.info("                       o8888888o")
-logger.info("                       88' . '88")
-logger.info("                       (| -_- |)")
-logger.info("                       0\  =  /0")
-logger.info("                     ___/`---'\___")
-logger.info("                   .' \\|     |// '.")
-logger.info("                  / \\|||  :  |||// \ ")
-logger.info("                 / _||||| -:- |||||- \ ")
-logger.info("                |   | \\\  - /// |   | ")
-logger.info("                | \_|  ''\---/''  |_/ | ")
-logger.info("                \  .-\__  '-'  ___/-. / ")
-logger.info("              ___'. .'  /--.--\  `. .'___ ")
-logger.info("           .'' '<  `.___\_<|>_/___.' >' ''. ")
-logger.info("          | | :  `- \`.;`\ _ /`;.`/ - ` : | | ")
-logger.info("          \  \ `_.   \_ __\ /__ _/   .-` /  / ")
-logger.info("      =====`-.____`.___ \_____/___.-`___.-'===== ")
-logger.info("                        `=---='")
-logger.info("")
-logger.info("")
-logger.info("      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-logger.info("")
-logger.info("            佛祖保佑     永不宕机     永无BUG")
-logger.info("                  btc-memz-plugin 启动！              ")
+// 佛祖保佑！
+logger.info(logger.red("                        _oo0oo_"))
+logger.info(logger.red("                       o8888888o"))
+logger.info(logger.red("                       88' . '88"))
+logger.info(logger.red("                       (| -_- |)"))
+logger.info(logger.red("                       0\  =  /0"))
+logger.info(logger.red("                     ___/`---'\___"))
+logger.info(logger.red("                   .' \\|     |// '."))
+logger.info(logger.red("                  / \\|||  :  |||// \ "))
+logger.info(logger.red("                 / _||||| -:- |||||- \ "))
+logger.info(logger.red("                |   | \\\  - /// |   | "))
+logger.info(logger.red("                | \_|  ''\---/''  |_/ | "))
+logger.info(logger.red("                \  .-\__  '-'  ___/-. / "))
+logger.info(logger.red("              ___'. .'  /--.--\  `. .'___ "))
+logger.info(logger.red("           .'' '<  `.___\_<|>_/___.' >' ''. "))
+logger.info(logger.red("          | | :  `- \`.;`\ _ /`;.`/ - ` : | | "))
+logger.info(logger.red("          \  \ `_.   \_ __\ /__ _/   .-` /  / "))
+logger.info(logger.red("      =====`-.____`.___ \_____/___.-`___.-'===== "))
+logger.info(logger.red("                        `=---='"))
+logger.info(logger.red(""))
+logger.info(logger.red(""))
+logger.info(logger.red("      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"))
+logger.info(logger.red(""))
+logger.info(logger.red("            佛祖保佑     永不宕机     永无BUG"))
+logger.info(logger.red("                  btc-memz-plugin 启动！              "))
