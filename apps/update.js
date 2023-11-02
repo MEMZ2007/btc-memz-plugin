@@ -2,6 +2,7 @@ import plugin from '../../../lib/plugins/plugin.js'
 import { createRequire } from 'module'
 import _ from 'lodash'
 import common from "../../../lib/common/common.js"
+import { Restart } from '../../other/restart.js'
 
 const require = createRequire(import.meta.url)
 const { exec, execSync } = require('child_process')
