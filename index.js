@@ -3,7 +3,7 @@ import { appsOut } from './robot/index.js';
 const apps = await appsOut({ AppsName: 'apps' }).then(req => {
   logger.info(`\n\t${chalk.white(`┌────────────────────────────┐`)}\t\n\t${chalk.cyan(`「btc-memz-plugin载入中···」`)}\n\t${chalk.blue(`「载入成功！」`)}\n\t${chalk.yellow(`「交流群号：235589956   」`)}\n\t${chalk.white(`└───────────────────────────┘`)}\t`);
   // 不知道写啥，那就让插件的启动速度变慢吧(bushi)
-  if (1) {
+  if (true) {
     let a = 1;
     for (let i = 0; i < 100; i++) {
       if (i) {
@@ -11,7 +11,7 @@ const apps = await appsOut({ AppsName: 'apps' }).then(req => {
           logger.info(logger.yellow("原神，启动！"))
         }
       }
-      for (let j = 0; j < 100000; j++) {
+      for (let j = 0; j < 100000000; j++) {
         if (j % 5 == 0) {
           a += j * 5;
         }
