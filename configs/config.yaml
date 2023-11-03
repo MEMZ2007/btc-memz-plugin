@@ -1,2 +1,2 @@
-# 加快插件加载
-hasten: false #千万不要将此项改为 hasten: true
+# 加快插件加载(建议开启)
+hasten: true
