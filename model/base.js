@@ -22,7 +22,7 @@ export default class base {
      * @param tplFile 模板html路径
      * @param pluResPath 插件资源路径
      */
-    get screenData () {
+   get screenData () {
       return {
         saveId: this.userId,
           tplFile: `./plugins/btc-memz-plugin/resource/html/${this.model}/${this.model}.html`,
