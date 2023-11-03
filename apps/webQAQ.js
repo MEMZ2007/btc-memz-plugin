@@ -69,18 +69,28 @@ export class Web extends plugin {
       await this.reply('获取截图失败，请稍后重试。');
     }
   }
-  async screenshot(e) {
+ async screenshot(e) {
+    // 回复正在截图中...
     await this.reply("正在截图中...")
+    // 获取消息中的url
     let url = e.msg.replace(/#网页截图(http:\/\/|https:\/\/)/g,'').trim();
+    // 如果url中不包含http或https，则在url前添加http
     if (url.replace(/(http:\/\/|https:\/\/)/g, '').trim() == url) {
       url = "http://" + url
     }
+    // 启动浏览器
     const browser = await puppeteer.launch();
+    // 打开新页面
     const page = await browser.newPage();
+    // 打开url
     await page.goto(url);
+    // 设置页面视口
     await page.setViewport({ width: 1920, height: 1080 });
+    // 截图
     const imgBuffer = await page.screenshot();
+    // 关闭浏览器
     await browser.close();
+    // 回复截图
     await this.reply(segment.image(imgBuffer));
   }
 }
