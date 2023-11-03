@@ -251,7 +251,7 @@ export class BtcPlugin extends plugin {
   async cjping (e) {
     let msg = e.msg
 		let place = msg.replace(/#|(Ping|ping)/g, "").trim();
-    let url = `https://api.qingvps.cn/API/ping.php?url=${place}`;
+    let url = `http://api.sc1.fun/API/sping.php?url=${place}`;
     let res = await fetch(url).catch((err) => logger.error(err))
     if (!res) {
     logger.error('接口请求失败')

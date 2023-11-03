@@ -16,6 +16,9 @@
     - icon: icon_35
       title: "#骚话文案"
       desc: '获取骚话文案'
+    - icon: icon_35
+      title: "#emo语录"
+      desc: '获取emo文案语录'
 - group: 站长工具
   list:
     - icon: icon_6
