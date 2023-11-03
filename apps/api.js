@@ -102,45 +102,59 @@ export class BtcPlugin extends plugin {
     }
 
   }
-  async btcwcnm(e) {
+ async btcwcnm(e) {
     try {
       
+      // 定义请求地址
       const url = 'https://api.wxsszs.cn/api/Ridicule.php?msg=5';
       
+      // 使用fetch发送请求
       const response = await fetch(url);
+      // 获取响应文本
       const data = await response.text();
 
+      // 回复消息
       await this.reply(data + "🤣👉");
 
     } catch(err) {
+      // 打印错误信息
       console.error(err);
+      // 回复出错信息
       await this.reply('出错了,请重试!');
     }
 
   }
-  async getDomainInfo(e) {
+ async getDomainInfo(e) {
+    // 获取域名
     let domain = e.msg.match(/#?域名\s*(.+)/)[1];
+    // 拼接接口请求地址
     let url = `https://api.asilu.com/php/domain.php?domain=${encodeURIComponent(domain)}`;
 
     try {
+      // 发起接口请求
       const response = await fetch(url);
+      // 获取接口请求返回的数据
       const data = await response.json();
       let info = '';
+      // 判断接口请求是否成功
       if (data.domain) {
+        // 获取域名信息
         info = `域名: ${data.domain}\n注册时间: ${data.creation_time}\n过期时间: ${data.expiration_time}\n域名商: ${data.registrar}\nDNS服务器:\n ${data.dns_servers.join('\n')}`;
       } else {
         info = '查询失败，无法获取域名信息';
       }
+      // 返回域名信息
       await this.reply(info);
     } catch (error) {
       console.error('[域名信息查询] 接口请求失败:', error);
       await this.reply('域名信息查询接口请求失败，请联系作者更换接口');
     }
   }
-  async checkDomainInfo(e) {
+ async checkDomainInfo(e) {
     const messageContent = e.msg; // 获取消息内容
     const domainMatch = messageContent.match(/^(#?(查询域名|域名查询))\s*(.+)/);
   
+    // 检查消息是否符合查询域名信息的格式
     if (!domainMatch) {
       await this.reply('请提供要查询的域名。');
       return;
@@ -148,6 +162,7 @@ export class BtcPlugin extends plugin {
   
     const domain = domainMatch[3]; // 获取域名
   
+    // 检查域名是否为空
     if (!domain) {
       await this.reply('请提供要查询的域名。');
       return;
@@ -159,6 +174,7 @@ export class BtcPlugin extends plugin {
       const response = await fetch(apiUrl);
       const data = await response.json();
   
+      // 检查查询结果是否正常
       if (data.code === 200) {
         const updateDate = data.result.update;
         const recordInfo = data.result.record;
@@ -183,21 +199,26 @@ export class BtcPlugin extends plugin {
       await this.reply('查询域名信息时出现错误。');
     }
   }
-  async checkHarass(e) {
+ async checkHarass(e) {
+    // 从消息中获取手机号
     let phone = e.msg.replace(/#|(骚扰|骚扰电话|疑似骚扰电话)(查询|查找|搜索|搜寻)/g, "");
 
+    // 构建请求地址
     let url = `https://api.oioweb.cn/api/search/harassPhone?phone=${phone}`;
     
+    // 发起请求
     let res = await fetch(url).catch(err => logger.error(err));
     res = await res.json();
 
     let replyMsg;
+    // 判断查询结果
     if (res.result.status) {
       replyMsg = `查询结果:\n${phone}已被举报${res.result.num}次,疑似骚扰电话`; 
     } else {
       replyMsg = `${phone}未出现在骚扰电话数据库中`;
     }
 
+    // 回复查询结果
     await this.reply(replyMsg);
   }
   async fetchOschinaNews(e) {
@@ -310,35 +331,47 @@ export class BtcPlugin extends plugin {
       await this.reply('获取英雄攻略信息时出现错误。');
     }
   }
-  async myjj(e) {
+ async myjj(e) {
     try {
       
+      // 定义一个请求地址
       const url = 'https://api.xygeng.cn/one';
       
+      // 使用fetch函数发送请求
       const response = await fetch(url);
+      // 获取响应文本
       const data = await response.text();
 
+      // 回复消息
       await this.reply(data);
 
     } catch(err) {
+      // 打印错误信息
       console.error(err);
+      // 回复出错消息
       await this.reply('出错了,请重试!');
     }
 
   }
-  async chat(e) {
+ async chat(e) {
+    // 获取消息中的关键字
     let Bing = e.msg.match(/#?枫叶\s*(.+)/)[1];
+    // 拼接请求地址
     let url = `http://ovoa.cc/api/Bing.php?msg=${encodeURIComponent(Bing)}?&model=down&type=json`;
 
     try {
+      // 发起请求
       const response = await fetch(url);
+      // 获取返回数据
       const data = await response.json();
       let info = '';
+      // 判断返回数据是否有效
       if (data.content) {
         info = `${data.content}`;
       } else {
         info = '失败！';
       }
+      // 回复消息
       await this.reply(info);
     } catch (error) {
       console.error('接口请求失败:', error);

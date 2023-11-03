@@ -24,19 +24,29 @@ const url_list = {
 // 定义一个WebPreview类，继承自plugin类
 export class WebPreview extends plugin {
   // 构造函数，传入参数
+// 构造函数，用于初始化插件
   constructor() {
     super({
+      // 插件名称
       name: '网页预览',
+      // 插件描述
       dsc: '发送#查询币种,返回此币种价格网页截图',
+      // 事件类型
       event: 'message',
+      // 优先级
       priority: 100,
+      // 规则
       rule: [
         {
+          // 正则表达式，用于匹配查询的币种
           reg: `^#?(dnx|kas|rvn|btc|chia|clore|doge|ergo|eth|nexa|neoxa|rxd|xch|meme|pepe)$`,
+          // 匹配到正则表达式时，执行的函数
           fnc: 'preview'
         },
         {
+          // 正则表达式，用于匹配查询的币种列表
           reg: `^#?(b|B|币)种列表`,
+          // 匹配到正则表达式时，执行的函数
           fnc: 'sendCoinList'
         },
       ]

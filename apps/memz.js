@@ -31,29 +31,45 @@ export class WebPrmeview extends plugin {
     });
   }
 
-  async preview() {
+ async preview() {
+    // 定义一个url
     const url = 'http://43.143.247.43:11459';
+    // 使用fetch函数获取url的响应
     const response = await fetch(url);
+    // 将响应的buffer赋值给buffer
     const buffer = await response.buffer();
+    // 使用reply函数发送图片
     await this.reply(segment.image(buffer));
   }
 
   async previewBlizzard() {
+    // 定义一个url
     const url = 'https://oe42057158.zicp.fun/';
+    // 使用fetch函数获取url的响应
     const response = await fetch(url);
+    // 将响应的buffer赋值给buffer
     const buffer = await response.buffer();
+    // 使用reply函数发送图片
     await this.reply(segment.image(buffer));
   }
   async baizi() {
+    // 定义一个url
     const url = 'http://43.143.247.43:20101/';
+    // 使用fetch函数获取url的响应
     const response = await fetch(url);
+    // 将响应的buffer赋值给buffer
     const buffer = await response.buffer();
+    // 使用reply函数发送图片
     await this.reply(segment.image(buffer));
   }
   async vits() {
+    // 定义一个url
     const url = 'http://43.143.247.43:20102/';
+    // 使用fetch函数获取url的响应
     const response = await fetch(url);
+    // 将响应的buffer赋值给buffer
     const buffer = await response.buffer();
+    // 使用reply函数发送图片
     await this.reply(segment.image(buffer));
   }
 

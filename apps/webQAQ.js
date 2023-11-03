@@ -25,15 +25,23 @@ export class Web extends plugin {
     });
   }
 
-  async captureTyphoonScreenshot(e) {
+ async captureTyphoonScreenshot(e) {
     try {
+      // 启动浏览器
       const browser = await puppeteer.launch();
+      // 打开新页面
       const page = await browser.newPage();
+      // 设置页面地址
       const url = 'http://typhoon.nmc.cn/web.html';
+      // 打开页面
       await page.goto(url);
+      // 等待3秒
       await page.waitForTimeout(3000);
+      // 截图
       const imgBuffer = await page.screenshot();
+      // 关闭浏览器
       await browser.close();
+      // 返回截图
       await this.reply(segment.image(imgBuffer));
     } catch (error) {
       console.error('获取台风截图失败:', error);
