@@ -27,6 +27,11 @@
     - icon: icon_7
       title: "#收录查询+网址"
       desc: '域名收录信息查询'
+- group: ChatGPT
+  list:
+    - icon: icon_6
+      title: "#枫叶+问题"
+      desc: '注：不支持上下文'  
 - group: 其他
   list:
     - icon: icon_6
