@@ -62,6 +62,10 @@ export class BtcPlugin extends plugin {
           reg: '^#?枫叶\s*(.+)',
           fnc: 'chat',
         },
+        {
+          reg: '^#?(emo|EMO)(语录)?$',
+          fnc: 'emo',
+      },
       ]
     });
   }
@@ -378,7 +382,22 @@ export class BtcPlugin extends plugin {
       await this.reply('接口请求失败，请联系作者更换接口');
     }
   }
+  async emo(e) {
+    try {
+      
+      const url = 'http://api.sc1.fun/API/emo.phpp';
+      
+      const response = await fetch(url);
+      const data = await response.text();
 
+      await this.reply(data);
+
+    } catch(err) {
+      console.error(err);
+      await this.reply('出错了,请重试!');
+    }
+
+  }
 
 
 
