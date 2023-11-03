@@ -37,7 +37,7 @@
       desc: '获取降水数据截图'  
     - icon: icon_7
       title: "#随机图片/白子/白上吹雪"
-      desc: '获取api图片' 
+      desc: '获取api图片[维护中]' 
     - icon: icon_6
       title: "#骚扰查询+手机号"
       desc: '骚扰电话查询'  
