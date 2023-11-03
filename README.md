@@ -29,31 +29,15 @@ _**
  
  国内旧接口
 
-《8.9.80》接口一 http://121.43.35.182:8005/sign?key=114514
-
-《8.9.73》接口一 http://121.43.35.182:8003/sign?key=114514
-
-《8.9.71》接口一 http://121.43.35.182:8004/sign?key=114514
-
-《8.9.70》接口二 http://121.43.35.182:8000/sign?key=114514
-
-《8.9.68》接口三 http://121.43.35.182:8001/sign?key=114514
-
-《8.9.63》接口四 http://121.43.35.182:8002/sign?key=114514
+《8.9.83》接口一 https://oe42057158.zicp.fun/sign?key=MEMZ
 
  国外新接口
 
-《8.9.80》接口一 http://memz.cc:8005/sign?key=MEMZ
+《8.9.88》接口一 http://sign.memz.cc:8007/sign?key=MEMZ 
 
-《8.9.73》接口一 http://memz.cc:8004/sign?key=MEMZ
+《8.9.83》接口二 http://sign.memz.cc:8006/sign?key=MEMZ 
 
-《8.9.71》接口一 http://memz.cc:8003/sign?key=MEMZ
-
-《8.9.70》接口二 http://memz.cc:8002/sign?key=MEMZ
-
-《8.9.68》接口三 http://memz.cc:8001/sign?key=MEMZ
-
-《8.9.63》接口四 http://memz.cc:8000/sign?key=MEMZ
+《8.9.80》接口三 http://sign.memz.cc:8005/sign?key=MEMZ
 
 ## 贡献者
 
