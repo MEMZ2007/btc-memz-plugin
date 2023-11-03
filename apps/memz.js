@@ -33,7 +33,7 @@ export class WebPrmeview extends plugin {
 
  async preview() {
     // 定义一个url
-    const url = 'http://43.143.247.43:11459';
+    const url = 'http://memz.space:8001/';
     // 使用fetch函数获取url的响应
     const response = await fetch(url);
     // 将响应的buffer赋值给buffer
