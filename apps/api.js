@@ -58,6 +58,10 @@ export class BtcPlugin extends plugin {
             reg: '^#?名言警句录$',
             fnc: 'myjj',
         },
+        {
+          reg: '^#?枫叶\s*(.+)',
+          fnc: 'chat',
+        },
       ]
     });
   }
@@ -322,7 +326,25 @@ export class BtcPlugin extends plugin {
     }
 
   }
+  async chat(e) {
+    let Bing = e.msg.match(/#?枫叶\s*(.+)/)[1];
+    let url = `http://ovoa.cc/api/Bing.php?msg=${encodeURIComponent(Bing)}?&model=down&type=json`;
 
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      let info = '';
+      if (data.content) {
+        info = `${data.content}`;
+      } else {
+        info = '失败！';
+      }
+      await this.reply(info);
+    } catch (error) {
+      console.error('接口请求失败:', error);
+      await this.reply('接口请求失败，请联系作者更换接口');
+    }
+  }
 
 
 
