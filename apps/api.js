@@ -385,7 +385,7 @@ export class BtcPlugin extends plugin {
   async emo(e) {
     try {
       
-      const url = 'http://api.sc1.fun/API/emo.phpp';
+      const url = 'http://api.sc1.fun/API/emo.php';
       
       const response = await fetch(url);
       const data = await response.text();
