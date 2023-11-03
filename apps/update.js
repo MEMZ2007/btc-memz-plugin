@@ -24,10 +24,6 @@ export class Update extends plugin {
                     reg: '^#*(btc|BTC)(插件)?(强制)?更新$',
                     fnc: 'update'
                 },
-                {
-                    reg: '^#(BTC|btc)(插件)?更新日志',
-                    fnc: 'btcupdateLog'
-                  },
             ]
         })
     }
@@ -250,9 +246,4 @@ export class Update extends plugin {
         // 返回true，表示安装了git
         return true
     }
-    async btcupdateLog () {
-        const plugin = this.getPlugin()
-        if (plugin === false) return false
-        return this.reply(await this.getLog(plugin))
-      }
 }

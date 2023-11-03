@@ -56,6 +56,9 @@
     - icon: icon_37
       title: "#cmd"
       desc: '执行一些简单的命令'
+    - icon: icon_38
+      title: "#btc版本"
+      desc: '查看BTC插件更新日志'
       
 
 
