@@ -382,23 +382,28 @@ export class BtcPlugin extends plugin {
       await this.reply('接口请求失败，请联系作者更换接口');
     }
   }
-  async emo(e) {
+ async emo(e) {
     try {
       
+      // 定义请求的url
       const url = 'http://api.sc1.fun/API/emo.php';
       
+      // 发起请求
       const response = await fetch(url);
+      // 获取返回的数据
       const data = await response.text();
 
+      // 回复数据
       await this.reply(data);
 
     } catch(err) {
+      // 打印错误信息
       console.error(err);
+      // 回复出错信息
       await this.reply('出错了,请重试!');
     }
 
   }
-
 
 
 
