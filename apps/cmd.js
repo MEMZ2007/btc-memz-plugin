@@ -31,19 +31,28 @@ async cmd_help(e) {
   return true;
 }
 
+//异步函数zhongduan，用于处理消息
 async zhongduan(e) {
+  //判断用户是否是主人
   if (!e.isMaster) {
-     await this.reply("凡人，休得僭越！");
+     //如果不是，则回复提示信息
+    await this.reply("凡人，休得僭越！");
     return;
   }
  
+  //打印用户发送的消息
   console.log("用户命令：", e.msg);
+  //去除消息中的#cmd
   let msg = e.msg.replace("#cmd","");
+  //引入child_process模块
   var exec = require('child_process').exec;
+  //执行命令，并将结果发送给用户
   var ls = exec('cd ../ && '+msg, function (error, stdout, stderr){
     if (error) {
+      //如果出现错误，则将错误信息发送给用户
       e.reply("失败！\nError code: "+error.code+"\n"+error.stack);
     }else{
+      //如果没有错误，则将结果发送给用户
       e.reply(stdout)
     }
   })

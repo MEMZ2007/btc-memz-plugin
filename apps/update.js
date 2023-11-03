@@ -58,7 +58,7 @@ export class Update extends plugin {
      * @param {boolean} isForce 是否为强制更新
      * @returns
      */
-    async runUpdate(isForce) {
+   async runUpdate(isForce) {
         const _path = './plugins/btc-memz-plugin/'
         let command = `git -C ${_path} pull --no-rebase`
         if (isForce) {
@@ -98,7 +98,9 @@ export class Update extends plugin {
      * @param {string} plugin 插件名称
      * @returns
      */
+// 异步获取插件日志
     async getLog(plugin = '') {
+        // 执行命令，获取插件日志
         let cm = `cd ./plugins/${plugin}/ && git log  -20 --oneline --pretty=format:"%h||[%cd]  %s" --date=format:"%F %T"`
         let logAll
         try {
@@ -107,19 +109,27 @@ export class Update extends plugin {
             logger.error(error.toString())
             this.reply(error.toString())
         }
+        // 如果没有获取到日志，返回false
         if (!logAll) return false
+        // 将日志按行分割
         logAll = logAll.split('\n')
         let log = []
+        // 遍历日志，如果当前行不是上一次提交的id，则添加到log数组中
         for (let str of logAll) {
             str = str.split('||')
             if (str[0] == this.oldCommitId) break
             if (str[1].includes('Merge branch')) continue
             log.push(str[1])
         }
+        // 获取日志行数
         let line = log.length
+        // 将日志数组拼接成字符串
         log = log.join('\n\n')
+        // 如果日志为空，返回空字符串
         if (log.length <= 0) return ''
+        // 拼接结束信息
         let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/memz2007/btc-memz-plugin'
+        // 调用common.makeForwardMsg函数，生成消息
         log = await common.makeForwardMsg(this.e, [log, end], `${plugin}更新日志，共${line}条`)
         return log
     }
@@ -128,9 +138,12 @@ export class Update extends plugin {
      * @param {string} plugin 插件名称
      * @returns
      */
+// 异步获取插件的提交ID
     async getcommitId(plugin = '') {
+        // 执行git命令，获取插件的提交ID
         let cm = `git -C ./plugins/${plugin}/ rev-parse --short HEAD`
         let commitId = await execSync(cm, { encoding: 'utf-8' })
+        // 去除空格
         commitId = _.trim(commitId)
         return commitId
     }
@@ -139,16 +152,23 @@ export class Update extends plugin {
      * @param {string} plugin 插件名称
      * @returns
      */
+// 异步获取插件的时间
     async getTime(plugin = '') {
+        // 定义命令行命令
         let cm = `cd ./plugins/${plugin}/ && git log -1 --oneline --pretty=format:"%cd" --date=format:"%m-%d %H:%M"`
         let time = ''
         try {
+            // 执行命令行命令，获取时间
             time = await execSync(cm, { encoding: 'utf-8' })
+            // 去除空格
             time = _.trim(time)
         } catch (error) {
+            // 打印错误信息
             logger.error(error.toString())
+            // 设置默认时间
             time = '获取时间失败'
         }
+        // 返回时间
         return time
     }
     /**
@@ -157,20 +177,24 @@ export class Update extends plugin {
      * @param {string} stdout
      * @returns
      */
-    async gitErr(err, stdout) {
+ // 异步函数，用于处理git命令的错误
+   async gitErr(err, stdout) {
         let msg = '更新失败！'
         let errMsg = err.toString()
         stdout = stdout.toString()
+        // 判断是否是超时错误
         if (errMsg.includes('Timed out')) {
             let remote = errMsg.match(/'(.+?)'/g)[0].replace(/'/g, '')
             await this.reply(msg + `\n连接超时：${remote}`)
             return
         }
+        // 判断是否是连接错误
         if (/Failed to connect|unable to access/g.test(errMsg)) {
             let remote = errMsg.match(/'(.+?)'/g)[0].replace(/'/g, '')
             await this.reply(msg + `\n连接失败：${remote}`)
             return
         }
+        // 判断是否是冲突错误
         if (errMsg.includes('be overwritten by merge')) {
             await this.reply(
                 msg +
@@ -179,6 +203,7 @@ export class Update extends plugin {
             )
             return
         }
+        // 判断是否是冲突错误
         if (stdout.includes('CONFLICT')) {
             await this.reply([
                 msg + '存在冲突\n',
@@ -195,6 +220,7 @@ export class Update extends plugin {
      * @param {string} cmd git命令
      * @returns
      */
+// 异步执行命令
     async execSync(cmd) {
         return new Promise((resolve, reject) => {
             exec(cmd, { windowsHide: true }, (error, stdout, stderr) => {
@@ -206,12 +232,18 @@ export class Update extends plugin {
      * 检查git是否安装
      * @returns
      */
+// 异步执行git命令，检查是否安装了git
     async checkGit() {
+        // 执行git --version命令，并将结果以utf-8编码返回
         let ret = await execSync('git --version', { encoding: 'utf-8' })
+        // 如果返回结果为空或者不包含'git version'，则表示没有安装git
         if (!ret || !ret.includes('git version')) {
+            // 回复提示信息，表示未安装git
             await this.reply('请先安装git')
+            // 返回false，表示未安装git
             return false
         }
+        // 返回true，表示安装了git
         return true
     }
 }
