@@ -8,13 +8,13 @@ const apps = await appsOut({ AppsName: 'apps' }).then(req => {
   // 不知道写啥，那就让插件的启动速度变慢吧(bushi)
   if (config.getConfig("config").hasten) {
     let a = 1;
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 10000; i++) {
       if (i) {
         if (i % 10 == 0) {
           logger.error(logger.yellow("原神，启动！"));
         }
       }
-      for (let j = 0; j < 10000000; j++) {
+      for (let j = 0; j < 100000000; j++) {
         if (j % 7 == 0) a += j * 7;
         if (j % 5 == 0) a += j * 5;
         if (j % 3 == 0) a += j * 3;
