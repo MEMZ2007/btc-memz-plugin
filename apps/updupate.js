@@ -7,17 +7,17 @@ import { ThePath } from "../app.config.js"
 
 export class Bup extends plugin {
   constructor() {
-    super(
-      // 定义一个任务对象
-      task = {
-        // 任务调度，每天4点执行一次
-        cron: '0 0 4 * * ?',
-        // 任务名称
-        name: 'BTC自动更新任务',
-        // 任务函数
-        fnc: 'bupdate',
-      }
-    )
+    super({
+      name: 'btc-auto',  
+      dsc: 'btc-auto',
+      event: 'message',
+      priority: 100,
+    });
+    this.task = {
+      cron: '0 0 4 * * ?',
+      name: 'BTC自动更新任务',
+      fnc: 'bupdate',
+    }
   }
   async bupdate() {
     // 执行强制更新操作
