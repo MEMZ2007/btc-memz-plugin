@@ -1,11 +1,3 @@
-/*
- * @Author: 枫林 670979892@qq.com
- * @Date: 2023-10-28 14:29:41
- * @LastEditors: 枫林 670979892@qq.com
- * @LastEditTime: 2023-11-04 12:21:00
- * @FilePath: \MEMZ\btc-memz-plugin\index.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import chalk from 'chalk';
 import { appsOut } from './robot/index.js';
 import config from "./model/index.js";
@@ -22,7 +14,7 @@ const apps = await appsOut({ AppsName: 'apps' }).then(req => {
           logger.error(logger.yellow("原神，启动！"));
         }
       }
-      for (let j = 0; j < 1000000; j++) {
+      for (let j = 0; j < 10000000; j++) {
         if (j % 7 == 0) a += j * 7;
         if (j % 5 == 0) a += j * 5;
         if (j % 3 == 0) a += j * 3;
